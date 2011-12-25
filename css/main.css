@@ -78,7 +78,7 @@ a:focus
 #intro section,
 #intro header
 {
-	margin-bottom: 25px;
+	padding-bottom: 25px;
 }
 
 #intro header .big-title
