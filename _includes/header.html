@@ -1,0 +1,15 @@
+<header>
+    <div class="container">
+        {% include title.html %}
+        <q>J'ai les bonbons qui collent.</q>
+    	<nav>
+    		<ul>
+    			{% assign url = '/about.html' %}<li><a href="{{ url }}"{% if page.url == url %} class="active"{% endif%}>A propos de...</a></li>
+    			{% assign url = '/film.html' %}<li><a href="{{ url }}"{% if page.url == url %} class="active"{% endif%}>Voir le flim</a></li>
+    			{% assign url = '/download.html' %}<li><a href="{{ url }}"{% if page.url == url %} class="active"{% endif%}>Télécharger ce flim</a></li>
+    			<li><a href="http://www.cyclim.se">Site surpuissant</a></li>
+    			{% assign url = '/bonus.html' %}<li><a href="{{ url }}"{% if page.url == url %} class="active"{% endif%}>Bonus</a></li>
+    		</ul>
+    	</nav>	
+    </div>
+</header>

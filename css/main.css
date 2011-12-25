@@ -1,0 +1,418 @@
+@font-face
+{
+	font-family: Brannboll;
+	src: url('../font/BrannbollSmal.ttf') format("truetype");;
+}
+
+@font-face
+{
+	font-family: Brannboll;
+	font-weight: bold;
+	src: url('../font/BrannbollFet.ttf') format("truetype");;
+}
+
+html,
+body
+{
+	background: black;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body
+{
+    position: relative;
+}
+
+a
+{
+    color: inherit;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus
+{
+	outline: none;
+}
+
+.big-title
+{
+    background: url(../img/star.png) no-repeat center 0px;
+    padding-top: 75px;
+    text-align: center;
+    width: 425px;
+    color: #A4A4A4;
+}
+
+.big-title h1
+{
+    font-weight: bold;
+    font-family: Brannboll, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    color: white;
+}
+
+.big-title h2
+{
+    font-size: 20px;
+}
+
+/**
+ * Intro
+ */
+#intro
+{
+	background: #090909 url(../img/george_big.jpg) no-repeat 600px 0px;
+	min-height: 840px;
+}
+
+#intro #wrapper
+{
+	width: 600px;
+	color: #A4A4A4;
+	text-align: center;
+}
+
+#intro section,
+#intro header
+{
+	margin-bottom: 25px;
+}
+
+#intro header .big-title
+{
+    margin: auto;
+}
+
+#intro #actors
+{
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#intro #review
+{
+	font-style: italic;
+	font-size: 14px;
+    height: 100px;
+}
+
+#intro #review q
+{
+	width: 70%;
+	display: inline-block;
+	margin-bottom: 4px;
+}
+
+#intro #review q:before
+{
+    content: "« ";
+}
+
+#intro #review q:after
+{
+    content: " »";
+}
+
+#intro #review .source:before
+{
+	content: '- ';
+}
+
+#intro #review .source
+{
+	margin-top: 7px;
+	text-align: right;
+}
+
+#intro .action a
+{
+	background-image: url(../img/button.png);
+	background-repeat: no-repeat;
+	width: 184px;
+	height: 37px;
+	display: inline-block;
+	color: #ECEBEB;
+	text-transform: uppercase;
+	padding-top: 6px;
+	font-size: 18px;
+	background-position: 0px 0px;
+	text-decoration: none;
+}
+
+#intro .action a:hover
+{
+	background-position: 0px -43px;
+}
+
+/**
+ * Main
+ */
+#main
+{
+    color: white;
+    font-size: 12px;
+}
+
+#main .container
+{
+    width: 1080px;
+    margin: auto;
+}
+
+#main section.container
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#main .love
+{
+    overflow: hidden;
+    zoom: 1;
+}
+
+#main .love .g-plusone,
+#main .love .fb-like,
+#main .love .tweet-share
+{
+    float: left;
+    width: 100px;
+}
+
+/**
+* Main -> Header
+*/
+#main header
+{
+    background: #2A2A2A;
+    position: relative;
+}
+
+#main header .container
+{
+    background: url(../img/header.jpg) no-repeat;
+    height: 195px;
+    position: relative;
+}
+
+#main header .big-title
+{
+    margin: auto;
+}
+
+#main header q
+{
+    background: url(../img/speech.png) bottom center no-repeat;
+    max-width: 150px;
+    text-align: center;
+    padding-bottom: 25px;
+    color: #7F7F7F;
+    font-size: 12px;
+    display: block;
+    position: absolute;
+    left: 150px;
+    bottom: 80px;
+}
+
+#main header nav
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#main header nav ul
+{
+    overflow: hidden;
+    zoom: 1;
+    text-align: center;
+}
+
+#main header nav li
+{
+    margin-right: 35px;
+    font-size: 13px;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+#main header nav li a
+{
+    position: relative;
+    display: block;
+}
+
+#main header nav li a.active:after,
+#main header nav li a:hover:after
+{
+    content: '';
+    height: 0;
+    position: absolute;
+    width: 0;
+    border: 5px solid transparent;
+    border-bottom-color: black;
+    z-index: 100;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+}
+
+#main header nav li a:hover:after
+{
+    border-bottom-color: white;
+}
+
+#main header nav li:last-child
+{
+    margin-right: 0px;
+}
+
+#main header nav a
+{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/**
+* Main -> Footer
+*/
+#main footer
+{
+    background: #191919;
+    color: #4F4F4F;
+    text-align: left;
+    font-size: 12px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    overflow: hidden;
+}
+
+#main footer p
+{
+    float: left;
+    padding-top: 3px;
+}
+
+#main footer p a
+{
+    text-decoration: none;
+}
+
+#main footer .love
+{
+    float: right;
+}
+
+/**
+ * Main -> About
+ */
+#main #about
+{
+    padding-right: 400px;
+    background: url(../img/deco_1.jpg) no-repeat top right;
+    min-height: 530px;
+}
+
+#main #about h3
+{
+    font-size: 16px;
+    margin-bottom: 15px;
+    display: block;
+    border-bottom: 1px solid white;
+    padding-bottom: 2px;
+}
+
+#main #about h4
+{
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#main #about ul
+{
+    margin-bottom: 8px;
+    list-style: square;
+    padding-left: 30px;
+}
+
+#main #about p
+{
+    color: #ccc;
+    margin: 0 0 8px 10px;
+    text-align: justify;
+}
+
+/**
+ * Main -> Film
+ */
+#main #film #player-flim
+{
+  width: 100%;
+  height: 600px;
+  border: 0;
+}
+
+/**
+ * Main -> Download
+ */
+#main #download
+{
+    min-height: 530px;
+    background: url(../img/deco_2.jpg) no-repeat top right;
+    padding-right: 400px;
+    padding-top: 150px;
+}
+
+#main #download .action
+{
+    margin-top: 50px;
+}
+
+#main #download .action a
+{
+    background: url(../img/download.png) no-repeat top left;
+    padding-left: 40px;
+    text-decoration: none;
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+/**
+ * Fork me!
+ */
+.ribbon
+{
+    /*background-color: #a00;*/
+    overflow: hidden;
+    /* top left corner */
+    position: absolute;
+    left: -3em;
+    top: 2.5em;
+    /* 45 deg ccw rotation */
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    /* shadow */
+    /*-moz-box-shadow: 0 0 1em #888;
+    -webkit-box-shadow: 0 0 1em #888;*/
+}
+.ribbon a
+{
+    border: 1px solid #faa;
+    color: #fff;
+    display: block;
+    font: bold 81.25% 'Helvetiva Neue', Helvetica, Arial, sans-serif;
+    margin: 0.05em 0 0.075em 0;
+    padding: 0.5em 3.5em;
+    text-align: center;
+    text-decoration: none;
+    /* shadow */
+    text-shadow: 0 0 0.5em #444;
+}
