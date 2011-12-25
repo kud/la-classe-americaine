@@ -126,6 +126,7 @@ a:focus
 {
 	margin-top: 7px;
 	text-align: right;
+	padding-right: 60px;
 }
 
 #intro .action a
