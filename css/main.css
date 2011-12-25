@@ -133,11 +133,11 @@ a:focus
 	background-image: url(../img/button.png);
 	background-repeat: no-repeat;
 	width: 184px;
-	height: 37px;
+	height: 34px;
 	display: inline-block;
 	color: #ECEBEB;
 	text-transform: uppercase;
-	padding-top: 6px;
+	padding-top: 9px;
 	font-size: 18px;
 	background-position: 0px 0px;
 	text-decoration: none;
