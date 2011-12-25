@@ -39,3 +39,19 @@ var georgeBubbles = [
     'CITATION_DE_GEORGE'
 ]
 ```
+
+License
+-------
+
+* Brannboll (font)
+
+Author's note: 
+
+```
+This font is for PERSONAL USE ONLY!
+
+To purchase a commercial license, visit:
+http://www.mawns.com/fonts.html?font=brannboll
+
+For questions or proposals, feel very free to mail mawns@live.se 
+```
