@@ -348,6 +348,18 @@ a:focus
     text-align: justify;
 }
 
+#main #about p.source
+{
+    text-align: right;
+    margin-top: 15px;
+}
+
+#main #about p.source a
+{
+    text-decoration: none;
+    border-bottom: 1px dotted #CCCCCC;
+}
+
 /**
  * Main -> Film
  */
