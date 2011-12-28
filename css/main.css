@@ -39,8 +39,8 @@ a:focus
 
 .big-title
 {
-    background: url(../img/star.png) no-repeat center 0px;
-    padding-top: 75px;
+    background: url(../img/star.png) no-repeat center 10px;
+    padding-top: 65px;
     text-align: center;
     width: 425px;
     color: #A4A4A4;
@@ -52,6 +52,8 @@ a:focus
     font-family: Brannboll, Arial, Helvetica, sans-serif;
     font-size: 34px;
     color: white;
+    display:inline-block;
+    height:55px
 }
 
 .big-title h2
@@ -131,6 +133,7 @@ a:focus
 {
 	margin-top: 7px;
 	text-align: right;
+	padding-right: 60px;
 }
 
 #intro .action a
@@ -138,11 +141,11 @@ a:focus
 	background-image: url(../img/button.png);
 	background-repeat: no-repeat;
 	width: 184px;
-	height: 37px;
+	height: 34px;
 	display: inline-block;
 	color: #ECEBEB;
 	text-transform: uppercase;
-	padding-top: 6px;
+	padding-top: 9px;
 	font-size: 18px;
 	background-position: 0px 0px;
 	text-decoration: none;
