@@ -64,12 +64,8 @@ a:focus
 /**
  * Intro
  */
-#intro
-{
-    background: #090909;
-}
 
-#intro body
+#intro
 {
 	background: #090909 url(../img/george_big.jpg) no-repeat 600px 0px;
 	min-height: 840px;
