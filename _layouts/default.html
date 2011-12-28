@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" id="{%if page.id %}{{ page.id }}{% else %}main{% endif %}">
+<html lang="fr">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="description" content="Attention ! Ce flim n'est pas un flim sur le cyclimse. Merci de votre compréhension." />
@@ -12,7 +12,7 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
-	<body>
+	<body id="{%if page.id %}{{ page.id }}{% else %}main{% endif %}">
 		{{ content }}
 		{% include script.html %}
 	</body>
