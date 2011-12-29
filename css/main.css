@@ -53,7 +53,9 @@ a:focus
     font-size: 34px;
     color: white;
     display: inline-block;
-    height: 55px
+    zoom: 1;
+    *display: inline;
+    height: 55px;
 }
 
 .big-title h2
@@ -108,6 +110,8 @@ a:focus
 	width: 70%;
 	display: inline-block;
 	margin-bottom: 4px;
+    zoom: 1;
+    *display: inline;
 }
 
 #intro #review q:before
@@ -139,6 +143,8 @@ a:focus
 	width: 184px;
 	height: 34px;
 	display: inline-block;
+    zoom: 1;
+    *display: inline;
 	color: #ECEBEB;
 	text-transform: uppercase;
 	padding-top: 9px;
@@ -243,6 +249,8 @@ a:focus
     font-size: 13px;
     padding-bottom: 10px;
     display: inline-block;
+    zoom: 1;
+    *display: inline;
 }
 
 #main header nav li a
