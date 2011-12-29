@@ -1,14 +1,27 @@
 @font-face
 {
+    font-family: Brannboll;
+    src: url('../font/BrannbollSmal.eot');
+}
+
+@font-face
+{
 	font-family: Brannboll;
-	src: url('../font/BrannbollSmal.ttf') format("truetype");;
+	src: url('../font/BrannbollSmal.eot') format("truetype");
+}
+
+@font-face
+{
+    font-family: Brannboll;
+    font-weight: bold;
+    src: url('../font/BrannbollFet.ttf');
 }
 
 @font-face
 {
 	font-family: Brannboll;
 	font-weight: bold;
-	src: url('../font/BrannbollFet.ttf') format("truetype");;
+	src: url('../font/BrannbollFet.ttf') format("truetype");
 }
 
 html,
