@@ -190,11 +190,11 @@ a:focus
 #main .love .fb-like,
 #main .love .tweet-share
 {
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
-    vertical-align: top;
-    width: 100px;
+    display: inline-block !important;
+    zoom: 1 !important;
+    *display: inline !important;
+    vertical-align: top !important;
+    width: 100px !important;
 }
 
 /**
