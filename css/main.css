@@ -189,7 +189,10 @@ a:focus
 #main .love .fb-like,
 #main .love .tweet-share
 {
-    float: left;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    vertical-align: top;
     width: 100px;
 }
 
