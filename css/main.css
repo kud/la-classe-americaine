@@ -162,13 +162,13 @@ a:focus
 	text-transform: uppercase;
 	padding-top: 9px;
 	font-size: 18px;
-	background-position: 0px 0px;
+	background-position: left bottom;
 	text-decoration: none;
 }
 
 #intro .action a:hover
 {
-	background-position: 0px -43px;
+	background-position: left -4px;
 }
 
 /**
