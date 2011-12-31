@@ -27,14 +27,13 @@
 html,
 body
 {
-	background: black;
+	background: #090909;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 body
 {
     position: relative;
-    height: 100%;
 }
 
 a
@@ -179,6 +178,7 @@ a:focus
 {
     color: white;
     font-size: 12px;
+    background: black;
 }
 
 #main .container
