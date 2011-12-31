@@ -7,6 +7,7 @@ To-do List
 ----------
 
 * Optimiser le générateur de phrases
+* Améliorer la page "download"
 
 Envie d'agrémenter le site ?
 ----------------------------
