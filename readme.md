@@ -6,8 +6,6 @@ Parce que ce flim est un pur chef oeuvre, il se devait d'avoir un site respectab
 To-do List
 ----------
 
-* Optimiser pour chaque navigateur
-* Sticker en bas le footer
 * Optimiser le générateur de phrases
 
 Envie d'agrémenter le site ?
