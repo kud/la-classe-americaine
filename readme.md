@@ -8,6 +8,7 @@ To-do List
 
 * Optimiser le générateur de phrases
 * Améliorer la page "download"
+* Nettoyer les scripts fb, twitter, google+ (les mettre dans un fichier ?)
 
 Envie d'agrémenter le site ?
 ----------------------------
