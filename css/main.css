@@ -67,6 +67,17 @@ a:focus
     height: 55px;
 }
 
+.big-title h1 a
+{
+    color: white;
+    text-decoration: none;
+}
+
+.big-title h1 a:hover
+{
+    text-decoration: none;
+}
+
 .big-title h2
 {
     font-size: 20px;
