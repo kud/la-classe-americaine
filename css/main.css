@@ -86,14 +86,15 @@ a:focus
 /**
  * Intro
  */
-
-#intro
+#intro #wrapper
 {
-	background: #090909 url(../img/george_big.jpg) no-repeat 600px 0px;
-	min-height: 840px;
+    background: #090909 url(../img/george_big.jpg) no-repeat right top;
+    min-height: 840px;
+    width: 1260px;
+    margin: auto;
 }
 
-#intro #wrapper
+#intro #content
 {
 	width: 600px;
 	color: #A4A4A4;
