@@ -9,6 +9,8 @@ layout: default
   js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-{% include header.html %}
-<section class="container">{{ content }}</section>
-{% include footer.html %}
+<div id="wrapper">
+    {% include header.html %}
+    <section class="container">{{ content }}</section>
+    {% include footer.html %} 
+</div>
