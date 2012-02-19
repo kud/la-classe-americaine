@@ -4,8 +4,8 @@
         <q>J'ai les bonbons qui collent au papier.</q>
     	<nav>
     		<ul>
+                <li><a href="film.html"{% if page.url == '/film.html' %} class="active"{% endif%}>Voir le flim</a></li>
     			<li><a href="about.html"{% if page.url == '/about.html' %} class="active"{% endif%}>A propos de...</a></li>
-    			<li><a href="film.html"{% if page.url == '/film.html' %} class="active"{% endif%}>Voir le flim</a></li>
     			<li><a href="download.html"{% if page.url == '/download.html' %} class="active"{% endif%}>Télécharger ce flim</a></li>
     			<li><a href="bonus.html"{% if page.url == '/bonus.html' %} class="active"{% endif%}>Bonus</a></li>
                 <li><a href="docu.html"{% if page.url == '/docu.html' %} class="active"{% endif%}>Docu</a></li>
