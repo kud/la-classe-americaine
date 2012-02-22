@@ -25,7 +25,11 @@ var georgeBubbles = [
     'Eh, tu sais à qui tu parles, là ?',
     'Vous savez ce que vous mangez, là ?',
     'Madame Felipe, la patronne, se coupe les morceaux de nichon pour en faire des ravioles.',
-    'Tes excuses tu peux te les coller au cul, tout comme ton bifteck, sauf que le bifteck, ça sert à rien, le patron l’a déjà fait.'
+    'Tes excuses tu peux te les coller au cul, tout comme ton bifteck, sauf que le bifteck, ça sert à rien, le patron l’a déjà fait.',
+    'C\'est ça, la puissance intellectuelle !... bac+2, les enfants !',
+    'Tiens regarde ! Les Anglais ont débarqué. On va être obligé de passer par derrière, tu sais, par ce tunnel tout sombre qui sent pas très bon.',
+    'Moi ce que je vois, c\'est que dans deux secondes je vais te botter le cul.',
+    'J\'ai les bonbons qui collent au papier.'
 ]
 
 
