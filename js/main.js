@@ -29,7 +29,8 @@ var georgeBubbles = [
     'C\'est ça, la puissance intellectuelle !... bac+2, les enfants !',
     'Tiens regarde ! Les Anglais ont débarqué. On va être obligé de passer par derrière, tu sais, par ce tunnel tout sombre qui sent pas très bon.',
     'Moi ce que je vois, c\'est que dans deux secondes je vais te botter le cul.',
-    'J\'ai les bonbons qui collent au papier.'
+    'J\'ai les bonbons qui collent au papier.',
+    'Tu baises les ménagères ? c\'est bien, tu dois avoir le cul qui brille !'
 ]
 
 
