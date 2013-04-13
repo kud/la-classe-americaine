@@ -45,7 +45,7 @@ License
 
 * Brannboll (font)
 
-Author's note: 
+Author's note:
 
 ```
 This font is for PERSONAL USE ONLY!
@@ -53,5 +53,10 @@ This font is for PERSONAL USE ONLY!
 To purchase a commercial license, visit:
 http://www.mawns.com/fonts.html?font=brannboll
 
-For questions or proposals, feel very free to mail mawns@live.se 
+For questions or proposals, feel very free to mail mawns@live.se
 ```
+
+                 _..__.          .__.._
+               .^"-.._ '-(\__/)-' _..-"^.
+                      '-.' oo '.-'
+                         `-..-'
