@@ -21,7 +21,6 @@ const TypewriterText = ({
   onComplete 
 }: TypewriterTextProps) => {
   const [displayText, setDisplayText] = useState("");
-  const [isComplete, setIsComplete] = useState(false);
   const [showBlinkingCursor, setShowBlinkingCursor] = useState(true);
 
   useEffect(() => {
@@ -33,7 +32,6 @@ const TypewriterText = ({
           index++;
         } else {
           clearInterval(interval);
-          setIsComplete(true);
           onComplete?.();
           
           // Hide cursor after completion

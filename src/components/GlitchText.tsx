@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 interface GlitchTextProps {
   text: string;
@@ -22,14 +22,14 @@ const GlitchText = ({
   const glitchChars = "!@#$%^&*()_+-=[]{}|;':\",./<>?";
   const originalText = text;
 
-  const createGlitchText = () => {
-    return originalText.split('').map((char, index) => {
+  const createGlitchText = useCallback(() => {
+    return originalText.split('').map((char) => {
       if (Math.random() < 0.1) {
         return glitchChars[Math.floor(Math.random() * glitchChars.length)];
       }
       return char;
     }).join('');
-  };
+  }, [originalText, glitchChars]);
 
   useEffect(() => {
     if (!isGlitching) return;
@@ -58,7 +58,7 @@ const GlitchText = ({
       intervals.forEach(clearInterval);
       clearTimeout(cleanup);
     };
-  }, [isGlitching, intensity, trigger]);
+  }, [isGlitching, intensity, trigger, createGlitchText, originalText]);
 
   useEffect(() => {
     if (trigger === "auto") {

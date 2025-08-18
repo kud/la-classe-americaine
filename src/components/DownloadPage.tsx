@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const DownloadPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pt-20">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto max-w-4xl px-4 py-8">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -20,7 +20,7 @@ const DownloadPage = () => {
           <Link href="/">
             <Button 
               variant="outline" 
-              className="border-amber-500 text-amber-400 hover:bg-amber-500 hover:text-black"
+              className="border-amber-500 text-amber-400 bg-black/80 hover:bg-amber-500 hover:text-black transition-all duration-300 focus-visible-ring shadow-professional"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Retour
@@ -38,7 +38,7 @@ const DownloadPage = () => {
           <div className="flex items-center justify-center gap-4 mb-4">
             <Download className="w-12 h-12 text-amber-400" />
             <h1 className="text-4xl md:text-6xl font-bold text-amber-400">
-              TÉLÉCHARGE LE
+              TÉLÉCHARGEZ-LE
             </h1>
             <Disc className="w-12 h-12 text-amber-400" />
           </div>
@@ -96,13 +96,13 @@ const DownloadPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link href="http://bit.ly/twY7gV" target="_blank">
+                <Link href="https://archive.org/details/LaClasseAmricaine1993" target="_blank" rel="noopener noreferrer">
                   <Button 
                     size="lg" 
-                    className="bg-amber-600 hover:bg-amber-700 text-black font-bold px-12 py-6 text-xl rounded-none shadow-2xl transform transition-all duration-300"
+                    className="bg-amber-600 hover:bg-amber-700 text-black font-bold px-12 py-6 text-xl rounded-lg shadow-2xl transform transition-all duration-300 focus-visible-ring"
                   >
                     <Download className="mr-3 h-6 w-6" />
-                    Télécharger le DVD
+                    Télécharger le Film
                   </Button>
                 </Link>
               </motion.div>

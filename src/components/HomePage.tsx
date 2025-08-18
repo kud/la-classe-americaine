@@ -15,6 +15,11 @@ import CharacterShowcase from "./CharacterShowcase";
 import QuotesCarousel from "./QuotesCarousel";
 import MovieReelLoader from "./MovieReelLoader";
 import NewspaperSection from "./NewspaperSection";
+import CinematicHero from "./CinematicHero";
+import AwardsSection from "./AwardsSection";
+import FilmTimeline from "./FilmTimeline";
+import ImmersiveGallery from "./ImmersiveGallery";
+import CreditsRoll from "./CreditsRoll";
 import { useState, useEffect } from "react";
 
 const HomePage = () => {
@@ -43,13 +48,22 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black relative">
+    <div id="main-content" className="min-h-screen relative" role="main">
       <MovieReelLoader isVisible={isLoading} message="Chargement du chef-d'œuvre..." />
-      <AnimatedBackground />
-      <FloatingQuotes />
       
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Cinematic Hero Section */}
+      <CinematicHero />
+      
+      {/* Awards & Recognition */}
+      <AwardsSection />
+      
+      {/* Film Timeline */}
+      <FilmTimeline />
+      
+      {/* Original Hero Content (now as second section) */}
+      <section className="relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center overflow-hidden pt-20" aria-label="Section introduction">
+        <AnimatedBackground />
+        <FloatingQuotes />
         {/* Background Stars Animation */}
         <div className="absolute inset-0">
           {[...Array(100)].map((_, i) => (
@@ -74,7 +88,7 @@ const HomePage = () => {
         </div>
 
         <motion.div 
-          className="text-center z-10 px-4 max-w-6xl mx-auto"
+          className="text-center z-10 px-4 max-w-4xl mx-auto"
           style={{ y: y1, opacity }}
         >
           <motion.div
@@ -136,7 +150,7 @@ const HomePage = () => {
                 transition={{ delay: 2.5 + index * 0.2 }}
                 className="text-center"
               >
-                <Card className="bg-black/60 border-amber-500/30 p-4 hover:border-amber-500/60 transition-all duration-300">
+                <Card className="bg-black/60 border-amber-500/30 p-4 hover:border-amber-500/60 transition-all duration-300 professional-card shadow-professional">
                   <CardContent className="p-0 space-y-2">
                     <stat.icon className={`w-6 h-6 ${stat.color} mx-auto`} />
                     <p className="text-white font-bold">{stat.value}</p>
@@ -156,20 +170,22 @@ const HomePage = () => {
             <Link href="/film">
               <Button 
                 size="lg" 
-                className="bg-amber-600 hover:bg-amber-700 text-black font-bold px-12 py-6 text-xl rounded-none transform hover:scale-110 transition-all duration-300 shadow-2xl mr-4"
+                className="bg-amber-600 hover:bg-amber-700 text-black font-bold px-12 py-6 text-xl rounded-lg transform hover:scale-105 transition-all duration-300 shadow-professional-lg mr-4 btn-professional focus-visible-ring"
+                aria-label="Regarder le film La Classe Américaine"
               >
-                <Play className="mr-3 h-6 w-6" />
-                REGARDER LE FILM
+                <Play className="mr-3 h-6 w-6" aria-hidden="true" />
+                <span>REGARDER LE FILM</span>
               </Button>
             </Link>
             <Link href="/about">
               <Button 
                 variant="outline"
                 size="lg" 
-                className="border-amber-500 text-amber-400 hover:bg-amber-500/20 font-bold px-8 py-6 text-lg"
+                className="border-amber-500 text-amber-400 bg-black/60 hover:bg-amber-500 hover:text-black font-bold px-8 py-6 text-lg rounded-lg shadow-professional btn-professional focus-visible-ring transition-all duration-300"
+                aria-label="En savoir plus sur le film"
               >
-                <Film className="mr-2 h-5 w-5" />
-                EN SAVOIR PLUS
+                <Film className="mr-2 h-5 w-5" aria-hidden="true" />
+                <span>EN SAVOIR PLUS</span>
               </Button>
             </Link>
           </motion.div>
@@ -177,47 +193,58 @@ const HomePage = () => {
 
         {/* Enhanced decorative elements */}
         <motion.div 
-          className="absolute bottom-10 left-10"
+          className="absolute bottom-10 left-10 hidden md:block"
           style={{ y: y2 }}
           animate={{ rotate: [0, 10, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity }}
         >
           <Image 
             src="/deco_1.jpg" 
-            alt="Decoration" 
+            alt="Image décorative du film La Classe Américaine" 
             width={120} 
             height={120} 
-            className="opacity-40 rounded-lg shadow-xl" 
+            className="opacity-40 rounded-lg shadow-xl hover:opacity-60 transition-opacity duration-300" 
+            priority={false}
           />
         </motion.div>
         <motion.div 
-          className="absolute top-20 right-10"
+          className="absolute top-20 right-10 hidden md:block"
           style={{ y: y1 }}
           animate={{ rotate: [0, -15, 15, 0] }}
           transition={{ duration: 5, repeat: Infinity }}
         >
           <Image 
             src="/deco_2.jpg" 
-            alt="Decoration" 
+            alt="Image décorative du film La Classe Américaine" 
             width={100} 
             height={100} 
-            className="opacity-40 rounded-lg shadow-xl" 
+            className="opacity-40 rounded-lg shadow-xl hover:opacity-60 transition-opacity duration-300" 
+            priority={false}
           />
         </motion.div>
       </section>
 
       {/* Quotes Carousel */}
-      <QuotesCarousel />
+      <section aria-label="Citations du film">
+        <QuotesCarousel />
+      </section>
 
       {/* Newspaper Investigation Section */}
-      <NewspaperSection />
+      <section aria-label="Articles de presse">
+        <NewspaperSection />
+      </section>
 
+      {/* Immersive Gallery */}
+      <ImmersiveGallery />
+      
       {/* Character Showcase */}
-      <CharacterShowcase />
+      <section aria-label="Personnages du film">
+        <CharacterShowcase />
+      </section>
 
       {/* Trailer Section */}
-      <section className="py-20 px-4 bg-gray-900/30">
-        <div className="container mx-auto max-w-6xl">
+      <section className="py-20 px-4 bg-gray-900/30" aria-label="Bande-annonce">
+        <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -238,9 +265,10 @@ const HomePage = () => {
             <div className="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/30 max-w-4xl mx-auto">
               <iframe 
                 className="w-full h-full"
-                src="http://www.dailymotion.com/embed/video/x413se?logo=0&autoPlay=0"
+                src="https://www.dailymotion.com/embed/video/x413se?logo=0&autoPlay=0"
                 frameBorder="0" 
                 allowFullScreen
+                title="La Classe Américaine - Bande Annonce Officielle"
               />
               
               {/* Film grain overlay */}
@@ -260,9 +288,9 @@ const HomePage = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-r from-amber-900/30 to-yellow-900/30 border-amber-500/50 p-8 relative overflow-hidden">
+            <Card className="bg-gradient-to-r from-amber-900/30 to-yellow-900/30 border-amber-500/50 p-8 relative overflow-hidden professional-card shadow-professional-lg">
               <CardContent className="relative z-10">
-                <Badge className="bg-amber-600 text-black font-bold mb-6 text-lg px-4 py-2">
+                <Badge className="bg-amber-600 text-black font-bold mb-6 text-lg px-4 py-2 shadow-professional">
                   CRITIQUE OFFICIELLE
                 </Badge>
                 
@@ -306,8 +334,8 @@ const HomePage = () => {
       </section>
 
       {/* Fun Facts Section */}
-      <section className="py-20 px-4 bg-black/50">
-        <div className="container mx-auto max-w-6xl">
+      <section className="py-20 px-4 bg-gray-900">
+        <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -364,10 +392,10 @@ const HomePage = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
               >
-                <Card className="bg-gradient-to-br from-gray-900 to-black border-amber-500/30 hover:border-amber-500/60 transition-all duration-300 h-full">
+                <Card className="bg-gradient-to-br from-gray-900 to-black border-amber-500/30 hover:border-amber-500/60 transition-all duration-300 h-full professional-card shadow-professional">
                   <CardHeader className="text-center">
                     <div className="text-4xl mb-4">{fact.icon}</div>
-                    <CardTitle className="text-xl text-amber-400">{fact.title}</CardTitle>
+                    <CardTitle className="text-xl text-amber-400 text-gradient-professional">{fact.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center">
                     <p className="text-gray-300 leading-relaxed">{fact.description}</p>
@@ -378,6 +406,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Credits Roll */}
+      <CreditsRoll />
     </div>
   );
 };

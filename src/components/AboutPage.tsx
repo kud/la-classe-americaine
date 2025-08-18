@@ -18,7 +18,7 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pt-20">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto max-w-4xl px-4 py-8">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -29,7 +29,7 @@ const AboutPage = () => {
           <Link href="/">
             <Button 
               variant="outline" 
-              className="border-amber-500 text-amber-400 hover:bg-amber-500 hover:text-black"
+              className="border-amber-500 text-amber-400 bg-black/80 hover:bg-amber-500 hover:text-black transition-all duration-300 focus-visible-ring shadow-professional"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Retour

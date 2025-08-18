@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://laclasseamericaine.fr/sitemap.xml
+
+# Block access to admin areas if any
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
+
+# Allow important pages
+Allow: /
+Allow: /film
+Allow: /about
+Allow: /bonus
+Allow: /docu
+Allow: /download

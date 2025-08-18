@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const FilmPage = () => {
   return (
     <div className="min-h-screen bg-black pt-20">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto max-w-4xl px-4 py-8">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -19,7 +19,7 @@ const FilmPage = () => {
           <Link href="/">
             <Button 
               variant="outline" 
-              className="border-amber-500 text-amber-400 hover:bg-amber-500 hover:text-black"
+              className="border-amber-500 text-amber-400 bg-black/80 hover:bg-amber-500 hover:text-black transition-all duration-300 focus-visible-ring shadow-professional"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Retour
@@ -35,7 +35,7 @@ const FilmPage = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-amber-400 mb-4">
-            REGARDE LE
+            REGARDEZ-LE
           </h1>
           <p className="text-xl text-gray-300">
             L'homme le plus classe du monde dans toute sa splendeur
@@ -52,10 +52,11 @@ const FilmPage = () => {
           <div className="relative aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-2xl border border-amber-500/30">
             <iframe 
               className="w-full h-full"
-              src="http://player.vimeo.com/video/26249810"
+              src="https://player.vimeo.com/video/26249810"
               frameBorder="0" 
               allowFullScreen
               allow="autoplay; fullscreen; picture-in-picture"
+              title="La Classe Américaine - Film Complet"
             />
           </div>
         </motion.div>
