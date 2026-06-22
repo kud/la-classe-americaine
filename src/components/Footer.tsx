@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { Film, Heart } from "lucide-react";
+import { motion } from "framer-motion"
+import Link from "next/link"
+import { Film, Heart } from "lucide-react"
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="bg-black/95 backdrop-blur-sm border-t border-amber-500/30 py-16 relative z-50">
       <div className="container mx-auto max-w-5xl px-6">
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-3 gap-12 mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,9 +25,11 @@ const Footer = () => {
               </h3>
             </Link>
             <p className="text-white font-article leading-relaxed">
-              Un chef-d'œuvre méconnu du cinéma français. L'histoire de George Abitbol, 
-              l'homme le plus classe du monde, qui nous a quittés en prononçant ces derniers mots : 
-              <span className="text-amber-400 font-bold">"Monde de merde"</span>.
+              Un chef-d'œuvre méconnu du cinéma français. L'histoire de George
+              Abitbol, l'homme le plus classe du monde, qui nous a quittés en
+              prononçant ces derniers mots :
+              <span className="text-amber-400 font-bold">"Monde de merde"</span>
+              .
             </p>
             <div className="flex items-center space-x-2 text-sm text-white">
               <Film className="w-4 h-4" />
@@ -67,13 +69,16 @@ const Footer = () => {
             </h4>
             <div className="space-y-3 text-white font-article">
               <p>
-                <strong className="text-amber-400">Réalisation :</strong> Michel Hazanavicius
+                <strong className="text-amber-400">Réalisation :</strong> Michel
+                Hazanavicius
               </p>
               <p>
-                <strong className="text-amber-400">Scénario :</strong> Michel Hazanavicius, Dominique Mézerette
+                <strong className="text-amber-400">Scénario :</strong> Michel
+                Hazanavicius, Dominique Mézerette
               </p>
               <p>
-                <strong className="text-amber-400">Production :</strong> ARTE France
+                <strong className="text-amber-400">Production :</strong> ARTE
+                France
               </p>
               <p>
                 <strong className="text-amber-400">Année :</strong> 1993
@@ -82,17 +87,31 @@ const Footer = () => {
                 <strong className="text-amber-400">Durée :</strong> 72 minutes
               </p>
             </div>
-            
+
             <div className="pt-4 border-t border-amber-500/20">
               <p className="text-sm text-white flex items-center">
-                Fait avec <Heart className="w-4 h-4 mx-1 text-red-500" /> pour le cinéma français
+                Fait avec <Heart className="w-4 h-4 mx-1 text-red-500" /> pour
+                le cinéma français
               </p>
             </div>
           </div>
         </motion.div>
 
+        {/* Disclaimer easter egg — the film's legendary opening warning, misspellings intact */}
+        <motion.p
+          className="text-center text-xs md:text-sm text-amber-500/40 font-article italic mb-8 cursor-default select-none hover:text-amber-400/70 transition-colors duration-500"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          title="Merci de votre compréhension."
+        >
+          Attention ! Ce flim n&apos;est pas un flim sur le cyclimse. Merci de
+          votre compréhension.
+        </motion.p>
+
         {/* Bottom Bar */}
-        <motion.div 
+        <motion.div
           className="pt-8 border-t border-amber-500/20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -105,7 +124,7 @@ const Footer = () => {
               <br className="md:hidden" />
               <span className="md:ml-2">Une œuvre de Michel Hazanavicius.</span>
             </div>
-            
+
             <div className="flex items-center space-x-6">
               <span className="text-white text-sm font-article">
                 "L'homme le plus classe du monde nous a quittés..."
@@ -124,7 +143,7 @@ const Footer = () => {
         </motion.div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

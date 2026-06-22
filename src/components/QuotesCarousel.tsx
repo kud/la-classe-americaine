@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Quote, ChevronLeft, ChevronRight, Volume2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import GlitchText from "./GlitchText";
+import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useState } from "react"
+import { Quote, ChevronLeft, ChevronRight, Volume2 } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import GlitchText from "./GlitchText"
 
 interface FilmQuote {
-  id: number;
-  text: string;
-  character: string;
-  context: string;
-  mood: "epic" | "funny" | "dramatic" | "mysterious";
-  color: string;
+  id: number
+  text: string
+  character: string
+  context: string
+  mood: "epic" | "funny" | "dramatic" | "mysterious"
+  color: string
 }
 
 const quotes: FilmQuote[] = [
@@ -23,7 +23,7 @@ const quotes: FilmQuote[] = [
     character: "George Abitbol",
     context: "Ses derniers mots légendaires",
     mood: "epic",
-    color: "from-red-600 to-orange-500"
+    color: "from-red-600 to-orange-500",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const quotes: FilmQuote[] = [
     character: "Le Narrateur",
     context: "La présentation de George Abitbol",
     mood: "dramatic",
-    color: "from-amber-600 to-yellow-500"
+    color: "from-amber-600 to-yellow-500",
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const quotes: FilmQuote[] = [
     character: "George Abitbol",
     context: "Quand on le regarde trop longtemps",
     mood: "funny",
-    color: "from-blue-600 to-cyan-500"
+    color: "from-blue-600 to-cyan-500",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const quotes: FilmQuote[] = [
     character: "Le Shérif",
     context: "Dans l'action, toujours",
     mood: "funny",
-    color: "from-green-600 to-emerald-500"
+    color: "from-green-600 to-emerald-500",
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ const quotes: FilmQuote[] = [
     character: "George Abitbol",
     context: "Nostalgique du passé",
     mood: "dramatic",
-    color: "from-purple-600 to-pink-500"
+    color: "from-purple-600 to-pink-500",
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const quotes: FilmQuote[] = [
     character: "Le Narrateur",
     context: "Portrait politique de George",
     mood: "mysterious",
-    color: "from-gray-600 to-slate-500"
+    color: "from-gray-600 to-slate-500",
   },
   {
     id: 7,
@@ -71,7 +71,7 @@ const quotes: FilmQuote[] = [
     character: "George Abitbol",
     context: "Regrets d'une vie",
     mood: "dramatic",
-    color: "from-indigo-600 to-blue-500"
+    color: "from-indigo-600 to-blue-500",
   },
   {
     id: 8,
@@ -79,55 +79,65 @@ const quotes: FilmQuote[] = [
     character: "Peter",
     context: "Cri de guerre du journaliste",
     mood: "epic",
-    color: "from-red-600 to-pink-500"
-  }
-];
+    color: "from-red-600 to-pink-500",
+  },
+]
 
 const QuotesCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [direction, setDirection] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [direction, setDirection] = useState(1)
+  const [imagined, setImagined] = useState(false)
 
-  const currentQuote = quotes[currentIndex];
+  const currentQuote = quotes[currentIndex]
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    setImagined(false)
+  }, [currentIndex])
+
+  useEffect(() => {
+    if (!isAutoPlaying) return
 
     const interval = setInterval(() => {
-      setDirection(1);
-      setCurrentIndex((prev) => (prev + 1) % quotes.length);
-    }, 4000);
+      setDirection(1)
+      setCurrentIndex((prev) => (prev + 1) % quotes.length)
+    }, 4000)
 
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
 
   const goToNext = () => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % quotes.length);
-    setIsAutoPlaying(false);
-  };
+    setDirection(1)
+    setCurrentIndex((prev) => (prev + 1) % quotes.length)
+    setIsAutoPlaying(false)
+  }
 
   const goToPrevious = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + quotes.length) % quotes.length);
-    setIsAutoPlaying(false);
-  };
+    setDirection(-1)
+    setCurrentIndex((prev) => (prev - 1 + quotes.length) % quotes.length)
+    setIsAutoPlaying(false)
+  }
 
   const goToSlide = (index: number) => {
-    setDirection(index > currentIndex ? 1 : -1);
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-  };
+    setDirection(index > currentIndex ? 1 : -1)
+    setCurrentIndex(index)
+    setIsAutoPlaying(false)
+  }
 
   const getMoodEmoji = (mood: string) => {
     switch (mood) {
-      case "epic": return "⚡";
-      case "funny": return "😂";
-      case "dramatic": return "🎭";
-      case "mysterious": return "🕵️";
-      default: return "🎬";
+      case "epic":
+        return "⚡"
+      case "funny":
+        return "😂"
+      case "dramatic":
+        return "🎭"
+      case "mysterious":
+        return "🕵️"
+      default:
+        return "🎬"
     }
-  };
+  }
 
   return (
     <section className="py-20 px-4 relative overflow-hidden">
@@ -139,8 +149,8 @@ const QuotesCarousel = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <GlitchText 
-            text="RÉPLIQUES CULTES" 
+          <GlitchText
+            text="RÉPLIQUES CULTES"
             className="text-4xl md:text-6xl font-title font-bold text-amber-400 mb-4"
             trigger="auto"
             intensity="medium"
@@ -157,29 +167,31 @@ const QuotesCarousel = () => {
               <motion.div
                 key={currentIndex}
                 custom={direction}
-                initial={{ 
+                initial={{
                   x: direction > 0 ? 1000 : -1000,
                   opacity: 0,
-                  rotateY: direction > 0 ? 45 : -45
+                  rotateY: direction > 0 ? 45 : -45,
                 }}
-                animate={{ 
+                animate={{
                   x: 0,
                   opacity: 1,
-                  rotateY: 0
+                  rotateY: 0,
                 }}
-                exit={{ 
+                exit={{
                   x: direction > 0 ? -1000 : 1000,
                   opacity: 0,
-                  rotateY: direction > 0 ? -45 : 45
+                  rotateY: direction > 0 ? -45 : 45,
                 }}
-                transition={{ 
+                transition={{
                   type: "spring",
                   stiffness: 300,
-                  damping: 30
+                  damping: 30,
                 }}
                 className="absolute inset-0"
               >
-                <Card className={`h-full bg-gradient-to-br ${currentQuote.color} relative overflow-hidden border-2 border-amber-500/30`}>
+                <Card
+                  className={`h-full bg-gradient-to-br ${currentQuote.color} relative overflow-hidden border-2 border-amber-500/30`}
+                >
                   <CardContent className="flex flex-col justify-center items-center h-full p-8 text-center relative z-10">
                     {/* Mood indicator */}
                     <motion.div
@@ -230,13 +242,10 @@ const QuotesCarousel = () => {
                         variant="outline"
                         size="sm"
                         className="border-white/50 text-white hover:bg-white/20"
-                        onClick={() => {
-                          // Here you could play an audio file
-                          console.log("Playing sound for:", currentQuote.text);
-                        }}
+                        onClick={() => setImagined(true)}
                       >
                         <Volume2 className="w-4 h-4 mr-2" />
-                        Écouter
+                        {imagined ? "Imaginez le son. C'est mieux." : "Écouter"}
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -275,9 +284,9 @@ const QuotesCarousel = () => {
               <motion.button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-amber-400 scale-125' 
-                    : 'bg-gray-600 hover:bg-gray-500'
+                  index === currentIndex
+                    ? "bg-amber-400 scale-125"
+                    : "bg-gray-600 hover:bg-gray-500"
                 }`}
                 onClick={() => goToSlide(index)}
                 whileHover={{ scale: 1.2 }}
@@ -300,7 +309,7 @@ const QuotesCarousel = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default QuotesCarousel;
+export default QuotesCarousel

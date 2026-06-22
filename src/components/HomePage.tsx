@@ -1,67 +1,78 @@
-"use client";
+"use client"
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Play, Star, Film, Trophy, Clock } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import AnimatedBackground from "./AnimatedBackground";
-import FloatingQuotes from "./FloatingQuotes";
-import TypewriterText from "./TypewriterText";
-import GlitchText from "./GlitchText";
-import CharacterShowcase from "./CharacterShowcase";
-import QuotesCarousel from "./QuotesCarousel";
-import MovieReelLoader from "./MovieReelLoader";
-import NewspaperSection from "./NewspaperSection";
-import CinematicHero from "./CinematicHero";
-import AwardsSection from "./AwardsSection";
-import FilmTimeline from "./FilmTimeline";
-import ImmersiveGallery from "./ImmersiveGallery";
-import CreditsRoll from "./CreditsRoll";
-import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion"
+import { Play, Star, Film, Trophy, Clock } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import AnimatedBackground from "./AnimatedBackground"
+import FloatingQuotes from "./FloatingQuotes"
+import TypewriterText from "./TypewriterText"
+import GlitchText from "./GlitchText"
+import CharacterShowcase from "./CharacterShowcase"
+import QuotesCarousel from "./QuotesCarousel"
+import MovieReelLoader from "./MovieReelLoader"
+import NewspaperSection from "./NewspaperSection"
+import CinematicHero from "./CinematicHero"
+import AwardsSection from "./AwardsSection"
+import FilmTimeline from "./FilmTimeline"
+import ImmersiveGallery from "./ImmersiveGallery"
+import CreditsRoll from "./CreditsRoll"
+import { useState, useEffect } from "react"
 
 const HomePage = () => {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 300], [0, 100]);
-  const y2 = useTransform(scrollY, [0, 300], [0, -100]);
-  const opacity = useTransform(scrollY, [0, 200], [1, 0]);
-  
-  const [isLoading, setIsLoading] = useState(true);
-  const [showTypewriter, setShowTypewriter] = useState(false);
+  const { scrollY } = useScroll()
+  const y1 = useTransform(scrollY, [0, 300], [0, 100])
+  const y2 = useTransform(scrollY, [0, 300], [0, -100])
+  const opacity = useTransform(scrollY, [0, 200], [1, 0])
+
+  const [isLoading, setIsLoading] = useState(true)
+  const [showTypewriter, setShowTypewriter] = useState(false)
 
   const filmStats = [
     { icon: Clock, label: "Durée", value: "72 min", color: "text-blue-400" },
     { icon: Film, label: "Année", value: "1993", color: "text-green-400" },
-    { icon: Trophy, label: "Statut", value: "Film Culte", color: "text-amber-400" },
+    {
+      icon: Trophy,
+      label: "Statut",
+      value: "Film Culte",
+      color: "text-amber-400",
+    },
     { icon: Star, label: "Note", value: "5/5", color: "text-purple-400" },
-  ];
+  ]
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false);
-      setTimeout(() => setShowTypewriter(true), 500);
-    }, 3000);
+      setIsLoading(false)
+      setTimeout(() => setShowTypewriter(true), 500)
+    }, 3000)
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div id="main-content" className="min-h-screen relative" role="main">
-      <MovieReelLoader isVisible={isLoading} message="Chargement du chef-d'œuvre..." />
-      
+      <MovieReelLoader
+        isVisible={isLoading}
+        message="Chargement du chef-d'œuvre..."
+      />
+
       {/* Cinematic Hero Section */}
       <CinematicHero />
-      
+
       {/* Awards & Recognition */}
       <AwardsSection />
-      
+
       {/* Film Timeline */}
       <FilmTimeline />
-      
+
       {/* Original Hero Content (now as second section) */}
-      <section className="relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center overflow-hidden pt-20" aria-label="Section introduction">
+      <section
+        className="relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center overflow-hidden pt-20"
+        aria-label="Section introduction"
+      >
         <AnimatedBackground />
         <FloatingQuotes />
         {/* Background Stars Animation */}
@@ -87,7 +98,7 @@ const HomePage = () => {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           className="text-center z-10 px-4 max-w-4xl mx-auto"
           style={{ y: y1, opacity }}
         >
@@ -97,21 +108,21 @@ const HomePage = () => {
             transition={{ duration: 1.2, delay: 0.5 }}
             className="mb-8"
           >
-            <GlitchText 
-              text="LA CLASSE" 
+            <GlitchText
+              text="LA CLASSE"
               className="text-6xl md:text-9xl font-headline font-bold text-amber-400 block mb-2 text-shadow-glow"
               trigger="auto"
               intensity="high"
             />
-            <GlitchText 
-              text="AMÉRICAINE" 
+            <GlitchText
+              text="AMÉRICAINE"
               className="text-4xl md:text-7xl font-newspaper font-bold text-white block"
               trigger="auto"
               intensity="medium"
             />
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="text-xl md:text-3xl text-gray-300 mb-12 max-w-4xl mx-auto space-y-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,13 +130,13 @@ const HomePage = () => {
           >
             {showTypewriter && (
               <>
-                <TypewriterText 
+                <TypewriterText
                   text="L'homme le plus classe du monde nous a quittés..."
                   delay={0}
                   speed={80}
                   className="block font-article"
                 />
-                <TypewriterText 
+                <TypewriterText
                   text='Ses derniers mots : "Monde de merde"'
                   delay={2000}
                   speed={60}
@@ -168,8 +179,8 @@ const HomePage = () => {
             className="space-x-4"
           >
             <Link href="/film">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-amber-600 hover:bg-amber-700 text-black font-bold px-12 py-6 text-xl rounded-lg transform hover:scale-105 transition-all duration-300 shadow-professional-lg mr-4 btn-professional focus-visible-ring"
                 aria-label="Regarder le film La Classe Américaine"
               >
@@ -178,9 +189,9 @@ const HomePage = () => {
               </Button>
             </Link>
             <Link href="/about">
-              <Button 
+              <Button
                 variant="outline"
-                size="lg" 
+                size="lg"
                 className="border-amber-500 text-amber-400 bg-black/60 hover:bg-amber-500 hover:text-black font-bold px-8 py-6 text-lg rounded-lg shadow-professional btn-professional focus-visible-ring transition-all duration-300"
                 aria-label="En savoir plus sur le film"
               >
@@ -192,33 +203,33 @@ const HomePage = () => {
         </motion.div>
 
         {/* Enhanced decorative elements */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-10 left-10 hidden md:block"
           style={{ y: y2 }}
           animate={{ rotate: [0, 10, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity }}
         >
-          <Image 
-            src="/deco_1.jpg" 
-            alt="Image décorative du film La Classe Américaine" 
-            width={120} 
-            height={120} 
-            className="opacity-40 rounded-lg shadow-xl hover:opacity-60 transition-opacity duration-300" 
+          <Image
+            src="/deco_1.jpg"
+            alt="Image décorative du film La Classe Américaine"
+            width={120}
+            height={120}
+            className="opacity-40 rounded-lg shadow-xl hover:opacity-60 transition-opacity duration-300"
             priority={false}
           />
         </motion.div>
-        <motion.div 
+        <motion.div
           className="absolute top-20 right-10 hidden md:block"
           style={{ y: y1 }}
           animate={{ rotate: [0, -15, 15, 0] }}
           transition={{ duration: 5, repeat: Infinity }}
         >
-          <Image 
-            src="/deco_2.jpg" 
-            alt="Image décorative du film La Classe Américaine" 
-            width={100} 
-            height={100} 
-            className="opacity-40 rounded-lg shadow-xl hover:opacity-60 transition-opacity duration-300" 
+          <Image
+            src="/deco_2.jpg"
+            alt="Image décorative du film La Classe Américaine"
+            width={100}
+            height={100}
+            className="opacity-40 rounded-lg shadow-xl hover:opacity-60 transition-opacity duration-300"
             priority={false}
           />
         </motion.div>
@@ -236,7 +247,7 @@ const HomePage = () => {
 
       {/* Immersive Gallery */}
       <ImmersiveGallery />
-      
+
       {/* Character Showcase */}
       <section aria-label="Personnages du film">
         <CharacterShowcase />
@@ -252,25 +263,26 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <GlitchText 
-              text="BANDE ANNONCE OFFICIELLE" 
+            <GlitchText
+              text="BANDE ANNONCE OFFICIELLE"
               className="text-3xl md:text-5xl font-title font-bold text-amber-400 mb-8"
               trigger="hover"
               intensity="medium"
             />
             <p className="text-xl text-gray-300 mb-8">
-              Découvrez les premiers instants du chef-d'œuvre
+              Découvrez les premiers instants du chef-d'œuvre. Le reste, c'est
+              encore mieux.
             </p>
-            
+
             <div className="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/30 max-w-4xl mx-auto">
-              <iframe 
+              <iframe
                 className="w-full h-full"
                 src="https://www.dailymotion.com/embed/video/x413se?logo=0&autoPlay=0"
-                frameBorder="0" 
+                frameBorder="0"
                 allowFullScreen
                 title="La Classe Américaine - Bande Annonce Officielle"
               />
-              
+
               {/* Film grain overlay */}
               <div className="absolute inset-0 vintage-grain opacity-20 pointer-events-none" />
               <div className="absolute inset-0 film-scanlines opacity-30 pointer-events-none" />
@@ -293,11 +305,12 @@ const HomePage = () => {
                 <Badge className="bg-amber-600 text-black font-bold mb-6 text-lg px-4 py-2 shadow-professional">
                   CRITIQUE OFFICIELLE
                 </Badge>
-                
+
                 <blockquote className="text-2xl md:text-4xl italic text-amber-100 mb-8 leading-relaxed">
-                  "Un flim pour les amateurs de ouiche lorraine et autres animaux préhistoriques partouzeurs de droite."
+                  "Un flim pour les amateurs de ouiche lorraine et autres
+                  animaux préhistoriques partouzeurs de droite."
                 </blockquote>
-                
+
                 <div className="flex justify-center mb-6">
                   {[...Array(5)].map((_, i) => (
                     <motion.div
@@ -312,10 +325,12 @@ const HomePage = () => {
                     </motion.div>
                   ))}
                 </div>
-                
-                <p className="text-gray-300 text-xl font-semibold">— The Magazine</p>
+
+                <p className="text-gray-300 text-xl font-semibold">
+                  — The Magazine
+                </p>
               </CardContent>
-              
+
               {/* Background elements */}
               <div className="absolute inset-0 vintage-grain opacity-20" />
               <motion.div
@@ -347,7 +362,8 @@ const HomePage = () => {
               DOSSIER SPÉCIAL
             </h3>
             <p className="text-xl text-gray-300">
-              Des anecdotes fascinantes sur ce monument du cinéma français
+              Des anecdotes fascinantes sur ce monument du cinéma français. Tout
+              est vrai, ou presque.
             </p>
           </motion.div>
 
@@ -355,34 +371,37 @@ const HomePage = () => {
             {[
               {
                 title: "4000 Films",
-                description: "Warner Bros. avait donné accès à 4000 films de leur catalogue",
-                icon: "🎬"
+                description:
+                  "Warner Bros. avait donné accès à 4000 films de leur catalogue",
+                icon: "🎬",
               },
               {
                 title: "2 Diffusions",
-                description: "Le film n'a été diffusé que deux fois à la télévision en 25 ans",
-                icon: "📺"
+                description:
+                  "Le film n'a été diffusé que deux fois à la télévision en 25 ans",
+                icon: "📺",
               },
               {
                 title: "Doubleurs Originaux",
-                description: "Les vraies voix françaises des acteurs hollywoodiens",
-                icon: "🎤"
+                description:
+                  "Les vraies voix françaises des acteurs hollywoodiens",
+                icon: "🎤",
               },
               {
                 title: "Michel Hazanavicius",
                 description: "Avant 'The Artist' et ses 5 Oscars",
-                icon: "🏆"
+                icon: "🏆",
               },
               {
                 title: "Film Culte",
                 description: "Un phénomène générationnel et internet",
-                icon: "🌟"
+                icon: "🌟",
               },
               {
                 title: "Citizen Kane",
                 description: "Un hommage assumé au chef-d'œuvre d'Orson Welles",
-                icon: "🎭"
-              }
+                icon: "🎭",
+              },
             ].map((fact, index) => (
               <motion.div
                 key={index}
@@ -395,10 +414,14 @@ const HomePage = () => {
                 <Card className="bg-gradient-to-br from-gray-900 to-black border-amber-500/30 hover:border-amber-500/60 transition-all duration-300 h-full professional-card shadow-professional">
                   <CardHeader className="text-center">
                     <div className="text-4xl mb-4">{fact.icon}</div>
-                    <CardTitle className="text-xl text-amber-400 text-gradient-professional">{fact.title}</CardTitle>
+                    <CardTitle className="text-xl text-amber-400 text-gradient-professional">
+                      {fact.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="text-center">
-                    <p className="text-gray-300 leading-relaxed">{fact.description}</p>
+                    <p className="text-gray-300 leading-relaxed">
+                      {fact.description}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -410,7 +433,7 @@ const HomePage = () => {
       {/* Credits Roll */}
       <CreditsRoll />
     </div>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage
