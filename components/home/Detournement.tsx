@@ -14,14 +14,14 @@ export function Detournement() {
         </h2>
         <div className={styles.prose}>
           <p>
-            En 1993, pour un anniversaire de la Warner, le studio ouvre son catalogue à Canal+. Michel Hazanavicius et
+            En 1993, pour les 70 ans de la Warner et les 100 ans du cinéma, le studio ouvre son catalogue à Canal+. Michel Hazanavicius et
             Dominique Mézerette y piochent des extraits d&apos;une cinquantaine de films tournés entre 1952 et 1980, un
             fragment de <cite>Maigret</cite> avec Bruno Cremer, et font tout redoubler par les voix françaises habituelles
             des stars, dont Raymond Loyer, la voix de John Wayne. Ils en tirent un flim neuf : un hommage à{" "}
             <cite>Citizen Kane</cite>.
           </p>
           <p>
-            Diffusé une seule fois sur Canal+, le 31 décembre 1993. Le flim survit en VHS copiées entre amis, puis sur
+            Diffusé une seule fois sur Canal+, le 31 décembre 1993 à 20 h 35. Le flim survit en VHS copiées entre amis, puis sur
             internet. Rediffusé sur Festival en 2004. Projeté au Centre Pompidou le 11 avril 2009, au festival Hors
             Pistes, en présence des deux auteurs.
           </p>

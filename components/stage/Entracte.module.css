@@ -12,6 +12,14 @@
   border: 1px solid #ffffff2a;
   border-bottom: 0;
 }
+.card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: 18px;
+  border: 1px solid #ffffff2a;
+}
 .title {
   margin: 0 auto;
   font-family: var(--serif);

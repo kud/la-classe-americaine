@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, m } from "motion/react";
+import { still } from "@/content/stills";
+import { Still } from "../Still";
 import styles from "./Entracte.module.css";
 
 /**
  * Le projectionniste (I-4): after 90 s idle, a single title card slides up.
- * It waits for the reader to come back; « Reprendre », Escape or scrolling closes it.
+ * George sleeps on it. It waits for the reader to come back; « Reprendre »,
+ * Escape or scrolling closes it.
  */
 export function Entracte({ id, reducedMotion, onDone }: { id: number; reducedMotion: boolean; onDone: (id: number) => void }) {
   const [visible, setVisible] = useState(true);
@@ -33,6 +36,7 @@ export function Entracte({ id, reducedMotion, onDone }: { id: number; reducedMot
           animate={{ y: 0, opacity: 1, transition: { duration: reducedMotion ? 0.15 : 0.26, ease: [0.2, 0.8, 0.2, 1] } }}
           exit={{ ...off, transition: { duration: reducedMotion ? 0.15 : 0.2, ease: "easeIn" } }}
         >
+          <Still still={still("george-sleeping")} sizes="380px" variant="bare" decorative />
           <p className={styles.title}>Entracte.</p>
           <button type="button" className={styles.resume} onClick={() => setVisible(false)}>
             Reprendre

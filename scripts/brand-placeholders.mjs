@@ -32,7 +32,8 @@ const [bodoni, italic, courier] = await Promise.all([
   font("bodoni-moda/files/bodoni-moda-latin-400-italic.woff"),
   font("courier-prime/files/courier-prime-latin-400-normal.woff"),
 ]);
-const george = await sharp(join(ROOT, "public/stills/george-hero.webp")).resize(400).png().toBuffer();
+const stills = JSON.parse(await readFile(join(ROOT, "content/stills.generated.json"), "utf8"));
+const george = await sharp(join(ROOT, "public", stills["george-hero"].src)).resize(400).png().toBuffer();
 
 const og = new ImageResponse(
   h(

@@ -1,6 +1,5 @@
 import { still } from "@/content/stills";
 import { Chapter } from "../Chapter";
-import { Pron } from "../Pron";
 import { Still } from "../Still";
 import { TypewriterTicks } from "./TypewriterTicks";
 import styles from "./home.module.css";
@@ -8,9 +7,9 @@ import styles from "./home.module.css";
 /** 2 · La Rédaction: the editor gives the assignment. */
 export function Redaction() {
   const ids = [
-    { still: still("dave-card"), name: <>Dave</>, actor: "Paul Newman", note: null },
-    { still: still("peter-card"), name: <Pron who="peter" />, actor: "Dustin Hoffman", note: "prononcé « Pétaire », et non pas « Piteur »" },
-    { still: still("steven-card"), name: <Pron who="steven" />, actor: "Robert Redford", note: "prononcé « Stévaine », et non pas « Stiveun »" },
+    { still: still("dave-card"), name: "Dave", actor: "Paul Newman" },
+    { still: still("peter-card"), name: "Peter", actor: "Dustin Hoffman" },
+    { still: still("steven-card"), name: "Steven", actor: "Robert Redford" },
   ];
   return (
     <Chapter id="redaction" room="paper" labelledBy="redaction-titre" cue enter="iris" className={styles.chapter}>
@@ -24,13 +23,13 @@ export function Redaction() {
             <article className={styles.memo} aria-label="Note de service">
               <p className={styles.memoHead}>NOTE DE SERVICE</p>
               <p className={styles.memoMeta}>
-                À : Dave, <Pron who="peter" />, <Pron who="steven" />
+                À : Dave, Peter, Steven
                 <br />
                 Objet : Abitbol, George
               </p>
               <p>« Monde de merde. » Je veux savoir ce que ça veut dire.</p>
               <p>
-                « Je vais te mettre sur le dossier Abitbol avec <Pron who="peter" /> et <Pron who="steven" />. »
+                Dave, sur le dossier Abitbol : « …tu seras avec Peter et Steven. »
               </p>
               <p className={styles.memoSign}>— Le patron</p>
             </article>
@@ -40,14 +39,12 @@ export function Redaction() {
               <li key={p.actor} className={styles.idCard}>
                 <Still still={p.still} sizes="(min-width: 760px) 200px, 30vw" variant="pinned" caption />
                 <p className={styles.idName}>{p.name}</p>
-                <p className={styles.idMeta}>
-                  {p.actor}
-                  {p.note && <span className={styles.idNote}> · {p.note}</span>}
-                </p>
+                <p className={styles.idMeta}>{p.actor}</p>
               </li>
             ))}
           </ul>
         </div>
+        <Still still={still("redaction-sofa")} sizes="(min-width: 1024px) 560px, 92vw" variant="pinned" caption className={styles.sofa} />
         <p className={styles.you}>Et vous, vous êtes le quatrième. Prenez un carnet.</p>
       </div>
     </Chapter>

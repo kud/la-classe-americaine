@@ -20,15 +20,13 @@ export interface Voice {
 
 export interface Character {
   id: CharacterId;
-  /** Spelling: « George Abitbol », as in V1 and the French Wikipedia (◌ check the end credits). */
+  /** Spelling: « George Abitbol », as in V1, the fans' script and the French Wikipedia. */
   name: string;
   /** The original actor in the Warner footage. */
   actor?: string;
   voice?: Voice;
   /** The witness card's deadpan file note. */
   note?: string;
-  /** Pronunciation, from the film's own insistence (I-11). */
-  pronunciation?: { said: string; not: string };
   /** Shown on the witness row (chapter 3). Order follows the spec table, ◌ to be re-ordered from the film. */
   witness: boolean;
   /**
@@ -52,7 +50,7 @@ export const CHARACTERS: Record<CharacterId, Character> = {
     id: "dave",
     name: "Dave",
     actor: "Paul Newman",
-    voice: { name: "Patrick Guillemin", status: "uncertain" },
+    voice: { name: "Patrick Guillemin", status: "attested" },
     note: "Journaliste. Ne lâche jamais une piste, même mauvaise.",
     witness: true,
     silence: "[Dave prend des notes.]",
@@ -61,20 +59,19 @@ export const CHARACTERS: Record<CharacterId, Character> = {
     id: "peter",
     name: "Peter",
     actor: "Dustin Hoffman",
-    note: "Prononcé Pétaire.",
-    pronunciation: { said: "Pétaire", not: "Piteur" },
+    voice: { name: "Jean-Claude Montalban", status: "attested" },
+    note: "Journaliste. Note tout, même le reste.",
     witness: true,
-    silence: "[Peter, prononcé « Pétaire », ne dit rien.]",
+    silence: "[Peter ne dit rien.]",
   },
   steven: {
     id: "steven",
     name: "Steven",
     actor: "Robert Redford",
-    voice: { name: "Patrick Guillemin", status: "uncertain" },
-    note: "Prononcé Stévaine.",
-    pronunciation: { said: "Stévaine", not: "Stiveun" },
+    voice: { name: "Patrick Guillemin", status: "attested" },
+    note: "Journaliste. Toujours au téléphone.",
     witness: true,
-    silence: "[Steven, prononcé « Stévaine », ne dit rien.]",
+    silence: "[Steven griffonne quelque chose.]",
   },
   jose: {
     id: "jose",
@@ -98,6 +95,7 @@ export const CHARACTERS: Record<CharacterId, Character> = {
     id: "frankie",
     name: "Frankie",
     actor: "Frank Sinatra",
+    voice: { name: "Roger Rudel", status: "attested" },
     note: "A connu George. Préfère ne pas en parler.",
     witness: true,
     silence: "[Le témoin préfère ne pas en parler.]",
@@ -122,15 +120,15 @@ export const CHARACTERS: Record<CharacterId, Character> = {
   },
   recitant: {
     id: "recitant",
-    name: "Le journal filmé",
+    name: "Le bulletin radio",
     witness: false,
-    silence: "[Musique d'actualités.]",
+    silence: "[Grésillements.]",
   },
   carton: {
     id: "carton",
-    name: "Le carton d'ouverture",
+    name: "L'avertissement",
     witness: false,
-    silence: "[Carton noir.]",
+    silence: "[Noir.]",
   },
 };
 

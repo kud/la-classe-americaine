@@ -126,13 +126,6 @@ test("the reviews rotate by hand, and list all six under reduced motion", async 
   await expect(page.getByTestId("reviews-all").locator("li")).toHaveCount(6);
 });
 
-test("Peter is pronounced « Pétaire »", async ({ page }) => {
-  await returning(page);
-  await page.goto("/#redaction");
-  await page.getByTestId("pron-peter").first().focus();
-  await expect(page.getByRole("tooltip").filter({ hasText: "Pétaire" }).first()).toBeVisible();
-});
-
 test("the case is stamped CLASSÉE", async ({ page }) => {
   await returning(page);
   await page.goto("/");

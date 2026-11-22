@@ -10,8 +10,8 @@ import { QUOTES } from "@/content/quotes";
 
 /** L'Enquête: one long page in eight chapters (§3). The site. */
 export default function Home() {
-  // background voices: verified lines whose speaker is not attested
-  const murmurs = QUOTES.filter((q) => q.speakerStatus !== "attested").map((q) => q.text);
+  // background voices: verified lines, unattributed in the margin (not the last words, not the warning)
+  const murmurs = QUOTES.filter((q) => q.n > 3).map((q) => q.text);
   return (
     <main id="contenu" data-snap>
       <Hero />

@@ -39,7 +39,10 @@ export function Still({ still, sizes, variant = "frame", preload, decorative, ca
       className={[styles.figure, styles[variant], caption ? styles.withCaption : "", className].join(" ")}
       tabIndex={caption ? 0 : undefined}
     >
-      <div className={styles.window}>{img}</div>
+      {/* landscape stills keep their shape; portrait ones fill the frame's 4:5 (or the ID photo's square) */}
+      <div className={styles.window} style={still.width / still.height > 1.2 ? { aspectRatio: `${still.width} / ${still.height}` } : undefined}>
+        {img}
+      </div>
       {caption && <figcaption className={styles.caption}>{STILL_CREDIT}</figcaption>}
     </figure>
   );

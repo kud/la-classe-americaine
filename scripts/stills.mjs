@@ -12,12 +12,13 @@
  * 2. Crop to the aspect around the focus point; upscale at most 2×, Lanczos only.
  * 3. Grade: "actualites" (greyscale, contrast 1.15, blacks lifted to #141210)
  *    or "temoignage" (saturation 0.55, warm 6 % tint, slight fade). Grain is CSS.
- * 4. Export a graded WebP master (≤ 1600 w) to public/stills/; next/image serves
+ * 4. Export a graded WebP master (≤ 1600 w) to public/stills/<id>.<hash>.webp; next/image serves
  *    AVIF/WebP at each slot's size from it. Plus a 16 px blurred placeholder.
  * 5. Write content/stills.generated.json. Never hand-edited.
  */
 import { execFileSync } from "node:child_process";
-import { mkdirSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, writeFileSync, existsSync, readdirSync, rmSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { join, resolve } from "node:path";
 import sharp from "sharp";
 import { STILLS } from "../content/stills.data.ts";
@@ -32,6 +33,8 @@ const MAX_W = 1600;
 const ASPECTS = { "4:5": 4 / 5, "16:9": 16 / 9, "1:1": 1 };
 
 mkdirSync(OUT, { recursive: true });
+// filenames carry a content hash, so a replaced still never hits a cached optimisation
+for (const f of readdirSync(OUT)) if (f.endsWith(".webp")) rmSync(join(OUT, f));
 
 async function source(still) {
   if (film) {
@@ -96,8 +99,9 @@ for (const still of STILLS) {
   const graded = await grade(sharp(cropped), still.grade)
     .resize(targetW, targetH, { kernel: "lanczos3" })
     .toBuffer();
-  const file = `${still.id}.webp`;
-  await sharp(graded).webp({ quality: 90 }).toFile(join(OUT, file));
+  const webp = await sharp(graded).webp({ quality: 90 }).toBuffer();
+  const file = `${still.id}.${createHash("sha256").update(webp).digest("hex").slice(0, 8)}.webp`;
+  writeFileSync(join(OUT, file), webp);
   const blur = await sharp(graded).resize(16).blur(1).webp({ quality: 40 }).toBuffer();
   out[still.id] = {
     src: `/stills/${file}`,

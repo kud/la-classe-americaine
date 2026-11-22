@@ -256,7 +256,7 @@ describe("lines", () => {
 
 describe("timings (§4.1)", () => {
   it("dissolve in 400 ms, beat 450 ms, word groups of 3 every 240 ms, hold 1.2 s + 60 ms per word, slow fade-out 700 ms", () => {
-    const t = timeline("Tu mélanges la coquetterie et la classe.", false); // 7 words, 3 groups
+    const t = timeline("un deux trois quatre cinq six sept", false); // 7 words, 3 groups
     expect(t).toMatchObject({ enter: 400, beat: 450, groupSize: 3, groups: 3, perGroup: 240, reveal: 720, hold: 1_620, exit: 700 });
     expect(t.total).toBe(400 + 450 + 720 + 1_620 + 700);
   });

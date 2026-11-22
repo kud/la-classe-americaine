@@ -49,9 +49,8 @@ export default function Generique() {
               ))}
             </dl>
             <p className={styles.note}>
-              Le flim est redoublé par les voix françaises habituelles des stars ; les attributions se contredisent
-              d&apos;une source à l&apos;autre. Ne figurent ici que celles qui sont attestées, en attendant une vérification sur le générique
-              de fin.
+              D&apos;après le script annoté des fans (cyclim.se) et Wikipédia. Ne figurent ici que les attributions
+              attestées, en attendant une vérification sur le générique de fin.
             </p>
           </section>
 

@@ -241,13 +241,10 @@
   line-height: 1.4;
   color: var(--ink-dim);
 }
-.idNote {
-  display: none;
-}
-@media (min-width: 760px) {
-  .idNote {
-    display: inline;
-  }
+.sofa {
+  margin-top: 40px;
+  max-width: 560px;
+  rotate: 0.6deg;
 }
 .you {
   margin-top: 40px;

@@ -34,14 +34,15 @@ Every still is declared in `content/stills.data.ts` and regenerated with `npm ru
 
 | Still | Current source | To do |
 | --- | --- | --- |
-| `george-hero`, `george-wide` | V1 `george_big.jpg`, 760×840 | Hero-grade George (hat and star) from the film, ≥ 1600 px wide |
-| `george-card` | fan frame, 1000 px, compressed (~00:00:35) | Retake from the film |
-| `dave-card` | cut from a V1 composite, 374 px | Dave from the film |
-| `peter-card` | cut from a painted V1 composite, 374 px | Peter from the film |
-| `steven-card` | fan frame, upscaled SD (~00:32:25) | Retake from the film |
-| `jose-card` | fan frame, upscaled SD (~00:35:01) | Retake from the film |
-| `jose-pirate` | fan frame, upscaled SD (~00:01:19) | Retake from the film |
-| Dino, Frankie, le patron, Orson Welles | none (typographic frame) | 4:5 witness stills |
+| `george-hero`, `george-wide` | V1 `george_big.jpg`, 760×840 | Hero-grade George (hat and star), ≥ 1600 px wide |
+| `george-card` | fan frame, 1000 px (*The Sea Chase*, 0:00:28) | Retake from the film |
+| `george-cowboy`, `george-sleeping` | YouTube thumbnails (640 / 1280 px) | Retake from the film |
+| `dave-card`, `peter-card`, `dino-card`, `frankie-card` | YouTube thumbnails (480–640 px), card size only | Retake from the film |
+| `steven-card`, `welles-card`, `redaction-sofa` | YouTube thumbnails (≈ 1280 px) | Retake from the film |
+| `jose-card`, `jose-pirate` | fan frames, upscaled SD | Retake from the film |
+| le patron du journal | none (typographic frame) | 4:5 still of Jason Robards |
+
+Sources, timecodes and source films: `assets/stills-source/SOURCES.md`. Output files carry a content hash (`<id>.<hash>.webp`), so a replaced still never reuses a cached optimisation.
 
 ## Brand: what lands under `public/brand/`
 

@@ -10,15 +10,16 @@
  * textStatus "attested" (and filmChecked: true), and delete it here.
  */
 export const PENDING_QUOTES: { n: number; text: string; why: string }[] = [
-  { n: 17, text: "envoie son gorille", why: "gag ✓, exact wording not transcribed" },
+  { n: 17, text: "envoie son gorille", why: "gag ✓ (Steven), exact wording not transcribed" },
   // superseded wordings, kept so the guard catches them if they creep back
-  { n: 6, text: "Tu fais un amalgame entre la coquetterie et la classe.", why: "corrected by the transcription" },
+  { n: 6, text: "Tu mélanges la coquetterie et la classe.", why: "subtitle wording; the script has « amalgame »" },
   { n: 7, text: "Ah, voilà enfin le roi de la classe !", why: "corrected by the transcription" },
   { n: 10, text: "se coupe les morceaux de nichon", why: "corrected by the transcription" },
-  { n: 11, text: "Tes excuses tu peux te les coller au cul", why: "corrected by the transcription" },
+  { n: 11, text: "Tu peux te coller tes excuses au cul", why: "subtitle wording; the script wins" },
   { n: 13, text: "Moi ce que je vois, c'est que dans deux secondes", why: "corrected by the transcription" },
-  { n: 15, text: "On va être obligé de passer par derrière", why: "corrected by the transcription" },
-  { n: 0, text: "Tu veux te mettre sur le coup mais tu travailleras avec Peter et Steven", why: "corrected: « Je vais te mettre sur le dossier Abitbol avec Peter et Steven. »" },
+  { n: 15, text: "passons par ce tunnel sombre", why: "subtitle wording; the script wins" },
+  { n: 0, text: "Tu veux te mettre sur le coup mais tu travailleras avec Peter et Steven", why: "the line ends « …tu seras avec Peter et Steven »" },
+  { n: 0, text: "Je vais te mettre sur le dossier Abitbol avec Peter et Steven", why: "subtitle wording; the script ends « …tu seras avec Peter et Steven »" },
 ];
 
 /**
@@ -36,4 +37,10 @@ export const BANNED_LINES: string[] = [
   // OSS 117, the same director's later films
   "J'aime me beurrer la biscotte",
   "Une dictature c'est quand les gens sont communistes",
+  // found nowhere in the film, the script or the subtitles (2026-11-22)
+  "Pétaire",
+  "Stévaine",
+  "Tegzass",
+  "Piteur",
+  "Stiveun",
 ];

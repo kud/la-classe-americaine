@@ -18,7 +18,7 @@ export default function NotFound() {
           Erreur 404 — Page introuvable
         </p>
         <h1 className={styles.title}>Cette page n&apos;existe pas.</h1>
-        <p className={styles.text}>Nos journalistes ont cherché partout. Même au Tegzass.</p>
+        <p className={styles.text}>Nos journalistes ont cherché partout. Même au Texas.</p>
         <Globe className={styles.globe} />
         <Link href="/" className={styles.back}>
           Retourner à l&apos;enquête
