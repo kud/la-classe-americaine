@@ -1,0 +1,615 @@
+/* ———————————————————— chapters ———————————————————— */
+.chapter {
+  padding-block: 72px;
+}
+@media (min-width: 760px) {
+  .chapter {
+    padding-block: 110px;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.h2 {
+  font-size: var(--s-48);
+  margin: 0.3em 0 0.6em;
+  max-width: 22ch;
+}
+.h2:focus {
+  outline: none;
+}
+.h3 {
+  font-size: var(--s-32);
+  margin: 56px 0 18px;
+}
+.lede {
+  color: var(--silver-dim);
+  margin: -0.4em 0 28px;
+}
+
+/* ———————————————————— 1 · Les Actualités ———————————————————— */
+.heroChapter {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-block: 72px 56px;
+}
+.hero {
+  display: grid;
+  gap: 28px;
+}
+@media (min-width: 760px) {
+  .hero {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    column-gap: 56px;
+  }
+}
+/* On phones the still comes first, 16:9, so the first screen shows a face. */
+.heroFigure {
+  margin: 0;
+  order: -1;
+}
+@media (min-width: 760px) {
+  .heroFigure {
+    order: 0;
+    justify-self: center;
+    width: 100%;
+    max-width: 440px;
+  }
+}
+.heroFrame {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  padding: 8px 8px 8px 24px;
+  border: 1px solid #ffffff2e;
+}
+.heroFrame::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 10px;
+  z-index: 1;
+  border-radius: 2px;
+  background: repeating-linear-gradient(#000 0 6px, #ffffff38 6px 14px, #000 14px 20px);
+}
+.heroImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: 50% 30%;
+  transform-origin: 50% 35%;
+  animation: pushIn 12s linear forwards;
+}
+@media (min-width: 760px) {
+  .heroImg {
+    aspect-ratio: 4 / 5;
+  }
+}
+@keyframes pushIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+.credit {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--silver-dim);
+}
+.cardTitle {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0;
+  padding: 6px 12px;
+  border: 1px solid var(--silver-dim);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.headline {
+  font-size: var(--s-72);
+  line-height: 0.98;
+  margin: 18px 0;
+  max-width: 14ch;
+}
+.dateline {
+  margin: 0;
+  font-size: var(--s-15);
+  color: var(--silver-dim);
+}
+.dek {
+  margin: 22px 0 0;
+  font-size: var(--s-15);
+  color: var(--silver-dim);
+}
+/* the beat, then the last words on their own line */
+.lastWords {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--s-48);
+  line-height: 1.1;
+  color: var(--silver);
+  opacity: 0;
+  animation: lastWords 0.9s ease 0.9s forwards;
+}
+@keyframes lastWords {
+  to {
+    opacity: 1;
+  }
+}
+:global(html[data-carton="1"]) .lastWords,
+:global(html[data-carton="1"]) .heroImg {
+  animation-play-state: paused;
+}
+.byline {
+  margin: 26px 0 0;
+  max-width: 46ch;
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--silver-dim);
+}
+.cue {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 24px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--silver-dim);
+  font-size: var(--s-15);
+  text-decoration: none;
+}
+
+/* the iris: used once, opening the inquiry */
+.iris {
+  animation: iris 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes iris {
+  from {
+    clip-path: circle(0% at 50% 30vh);
+  }
+  to {
+    clip-path: circle(150% at 50% 30vh);
+  }
+}
+
+/* ———————————————————— 2 · La Rédaction ———————————————————— */
+.desk {
+  display: grid;
+  gap: 40px;
+}
+@media (min-width: 1024px) {
+  .desk {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+.memo {
+  max-width: 720px;
+  padding: 28px 22px;
+  background: var(--paper-sheet);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 var(--rule), 0 12px 30px #0000000f;
+}
+.memo p {
+  margin: 0.6em 0;
+}
+.memoHead {
+  margin: 0 0 16px !important;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+.memoMeta {
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--rule);
+  line-height: 1.8;
+}
+.memoSign {
+  text-align: right;
+  max-width: none;
+}
+.ids {
+  list-style: none;
+  margin: 0;
+  padding: 12px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 720px;
+}
+.idCard:nth-child(1) {
+  rotate: -1.2deg;
+}
+.idCard:nth-child(2) {
+  rotate: 1deg;
+  translate: 0 10px;
+}
+.idCard:nth-child(3) {
+  rotate: -0.4deg;
+}
+.idName {
+  margin: 10px 0 0;
+  font-family: var(--serif);
+  font-size: var(--s-22);
+  line-height: 1.1;
+}
+.idMeta {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-dim);
+}
+.idNote {
+  display: none;
+}
+@media (min-width: 760px) {
+  .idNote {
+    display: inline;
+  }
+}
+.you {
+  margin-top: 40px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--s-32);
+  line-height: 1.2;
+}
+
+/* ———————————————————— 3 · Les Témoins ———————————————————— */
+.witnesses {
+  position: relative;
+}
+.rowNav {
+  display: none;
+}
+.row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.witness {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 14px;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  text-align: left;
+  background: none;
+  border: 1px solid var(--rule-screen);
+  color: inherit;
+  transition: border-color 150ms ease-out;
+}
+.witness:hover {
+  border-color: var(--silver-dim);
+}
+.witnessStill img {
+  filter: none;
+}
+.witnessText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 100%;
+}
+.witnessName {
+  font-family: var(--serif);
+  font-size: var(--s-22);
+  line-height: 1.1;
+}
+.witnessMeta {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--silver-dim);
+}
+.witnessNote {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule-screen);
+  font-size: 13px;
+  color: var(--silver);
+}
+@media (min-width: 760px) {
+  .rowNav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: -64px 0 20px;
+  }
+  .rowNav button {
+    min-width: 44px;
+    min-height: 44px;
+    background: none;
+    border: 1px solid #ffffff33;
+    color: var(--silver);
+  }
+  .row {
+    grid-auto-flow: column;
+    grid-auto-columns: 240px;
+    gap: 20px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 2px;
+    padding: 4px 2px 18px;
+    scrollbar-color: #ffffff33 transparent;
+  }
+  .row > li {
+    scroll-snap-align: start;
+  }
+  .witness {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* ———————————————————— 4 · Pièces à conviction ———————————————————— */
+.slips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+.slips > li {
+  display: grid;
+}
+@media (min-width: 760px) {
+  .slips {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .slips {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.more {
+  margin-top: 28px;
+}
+.more a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+/* ———————————————————— 5 · La critique ———————————————————— */
+.critique {
+  text-align: center;
+}
+.review {
+  max-width: 780px;
+  margin: 28px auto 0;
+}
+.reviewBody {
+  transition: opacity 200ms linear;
+}
+.faded {
+  opacity: 0;
+}
+.stars {
+  margin: 0 auto;
+  max-width: none;
+  font-size: 22px;
+  letter-spacing: 0.3em;
+  color: var(--silver);
+}
+.starsOff {
+  color: var(--silver-dim);
+}
+.reviewQuote {
+  margin: 18px 0;
+}
+.reviewQuote p {
+  margin: 0 auto;
+  max-width: none;
+  min-height: 3.6em;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--s-48);
+  line-height: 1.15;
+  quotes: "« " " »";
+}
+.reviewQuote p::before {
+  content: open-quote;
+}
+.reviewQuote p::after {
+  content: close-quote;
+}
+.outlet {
+  margin: 0 auto;
+  max-width: none;
+  font-size: var(--s-13);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver-dim);
+}
+.reviewNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+.reviewNav button {
+  min-width: 44px;
+  min-height: 44px;
+  background: none;
+  border: 1px solid #ffffff33;
+  color: var(--silver);
+}
+.count {
+  font-size: var(--s-13);
+  color: var(--silver-dim);
+}
+.reviewList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 36px;
+}
+.reviewList .reviewQuote p {
+  min-height: 0;
+  font-size: var(--s-32);
+}
+.footnote {
+  margin: 28px auto 0;
+  font-size: 12px;
+  color: var(--silver-dim);
+}
+
+/* ———————————————————— 6 · Le Grand Détournement ———————————————————— */
+.prose p {
+  margin: 0 0 1em;
+}
+.cans {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+/* a film-can label */
+.can {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px / 28px;
+  background: var(--paper-sheet);
+  text-align: center;
+}
+.canYear {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--ink-dim);
+}
+.canTitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--s-17);
+  line-height: 1.2;
+}
+.canFr {
+  font-size: 12px;
+  color: var(--ink-dim);
+}
+.canMore {
+  border-style: dashed;
+  background: none;
+}
+.bonus {
+  margin-top: 28px;
+}
+
+/* ———————————————————— 7 · Affaire classée ———————————————————— */
+.classee {
+  background: linear-gradient(var(--screen), var(--paper) 120px);
+  padding-top: 160px;
+}
+.board {
+  text-align: center;
+}
+.boardPhotos {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 28px auto 10px;
+  max-width: 420px;
+}
+.thread {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+  width: 100%;
+  height: 60px;
+  z-index: 3;
+  pointer-events: none;
+}
+.boardPhoto {
+  width: 96px;
+}
+.boardPhoto:nth-of-type(1) {
+  rotate: -3deg;
+}
+.boardPhoto:nth-of-type(3) {
+  rotate: 2deg;
+}
+.boardQuestion {
+  margin: 36px auto 0;
+  max-width: 20ch;
+  font-size: var(--s-48);
+  line-height: 1.1;
+}
+.stampSlot {
+  min-height: 120px;
+  display: grid;
+  place-items: center;
+}
+.bigStamp {
+  display: inline-block;
+  margin: 24px auto 0;
+  max-width: none;
+  padding: 6px 22px;
+  border: 5px solid var(--stamp);
+  color: var(--stamp);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(40px, 9vw, 84px);
+  line-height: 1.1;
+  letter-spacing: 0.14em;
+}
+.closing {
+  margin: 24px auto 0;
+}
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 34px;
+}
+.ctas a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid currentColor;
+  font-size: var(--s-15);
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroImg,
+  .iris {
+    animation: none;
+  }
+  .lastWords {
+    animation: lastWords 150ms ease 0.9s forwards;
+  }
+  .reviewBody {
+    transition: opacity 150ms linear;
+  }
+}

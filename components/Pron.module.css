@@ -1,0 +1,34 @@
+.wrap {
+  position: relative;
+  display: inline-block;
+}
+.name {
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+}
+.tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  translate: -50% 0;
+  z-index: 20;
+  width: max-content;
+  max-width: 260px;
+  padding: 6px 10px;
+  font-family: var(--mono);
+  font-style: normal;
+  font-weight: 400;
+  font-size: var(--s-13);
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
+  background: var(--ink);
+  color: var(--paper);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.open {
+  visibility: visible;
+  opacity: 1;
+}

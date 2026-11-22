@@ -20,22 +20,22 @@
     "check:links": "node scripts/check-links.mjs"
   },
   "dependencies": {
+    "@fontsource/bodoni-moda": "5.3.0",
+    "@fontsource/courier-prime": "5.3.0",
     "motion": "14.14.0",
     "next": "16.4.6",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "sharp": "0.35.5"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
-    "@fontsource/bodoni-moda": "5.3.0",
-    "@fontsource/courier-prime": "5.3.0",
     "@playwright/test": "1.63.0",
     "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "eslint": "9.39.5",
     "eslint-config-next": "16.4.6",
-    "sharp": "0.35.5",
     "typescript": "6.0.3",
     "vitest": "5.1.1"
   }

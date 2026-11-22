@@ -1,0 +1,35 @@
+.card {
+  position: fixed;
+  z-index: 60;
+  left: 50%;
+  bottom: 0;
+  translate: -50% 0;
+  width: min(420px, calc(100vw - 32px));
+  padding: 28px 24px calc(20px + env(safe-area-inset-bottom));
+  text-align: center;
+  background: #000;
+  color: #f2eee6;
+  border: 1px solid #ffffff2a;
+  border-bottom: 0;
+}
+.title {
+  margin: 0 auto;
+  font-family: var(--serif);
+  font-size: var(--s-48);
+  line-height: 1;
+}
+.resume {
+  margin-top: 14px;
+  min-height: 44px;
+  padding: 8px 14px;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #8d877d;
+  color: #c9c2b4;
+  font-family: var(--mono);
+  font-size: var(--s-13);
+  letter-spacing: 0.08em;
+}
+.resume:focus-visible {
+  outline-color: #f2eee6;
+}

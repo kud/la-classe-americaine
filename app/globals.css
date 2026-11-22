@@ -1,0 +1,205 @@
+/* Tokens (§6). Two rooms: the projection room (screen) and the dossier (paper). */
+:root {
+  --paper: #efe8da;
+  --paper-sheet: color-mix(in srgb, var(--paper) 78%, #fff);
+  --photo: #fff;
+  --ink: #1b1814;
+  --ink-dim: #4f483f;
+  --screen: #0e0d0c;
+  --silver: #e4ded2;
+  --silver-dim: #9e978a;
+  --stamp: #b3261e;
+  --rule: #1b181433;
+  --rule-screen: #ffffff24;
+
+  --serif: var(--font-bodoni), "Didot", Georgia, serif;
+  --mono: var(--font-courier), "Courier New", monospace;
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --gutter: 16px;
+  --max: 1200px;
+
+  /* fluid scale: 13 / 15 / 17 / 22 / 32 / 48 / 72 / 112 */
+  --s-13: 0.8125rem;
+  --s-15: 0.9375rem;
+  --s-17: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --s-22: clamp(1.25rem, 1.15rem + 0.5vw, 1.375rem);
+  --s-32: clamp(1.625rem, 1.4rem + 1.1vw, 2rem);
+  --s-48: clamp(2.125rem, 1.6rem + 2.4vw, 3rem);
+  --s-72: clamp(2.5rem, 1.6rem + 4.2vw, 4.5rem);
+  --s-112: clamp(3rem, 1.4rem + 7.5vw, 7rem);
+
+  color-scheme: light;
+}
+
+/* System dark mode dims the paper to a projection-booth grey rather than inverting it. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #2a2723;
+    --paper-sheet: color-mix(in srgb, var(--paper) 86%, #000);
+    --photo: #3a3631;
+    --ink: #ece5d6;
+    --ink-dim: #c2baab;
+    --screen: #0a0908;
+    --silver: #ddd6c8;
+    --silver-dim: #8d8679;
+    --stamp: #e0483d;
+    --rule: #ece5d633;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: var(--s-17);
+  line-height: 1.6;
+  overflow-x: clip;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.18em;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+p {
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* Rooms */
+.paper {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.screen {
+  position: relative;
+  background: var(--screen);
+  color: var(--silver);
+  isolation: isolate;
+}
+
+/* Static grain, 4 %, on the projection room only. It never animates. */
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Focus: 3 px stamp red on paper, 3 px silver on screen, 2 px offset. */
+:focus-visible {
+  outline: 3px solid var(--stamp);
+  outline-offset: 2px;
+}
+.screen :focus-visible {
+  outline-color: var(--silver);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  z-index: 200;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 14px;
+  font-size: var(--s-15);
+}
+.skip-link:focus {
+  top: var(--gutter);
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+@media (min-width: 760px) {
+  .wrap {
+    padding-inline: 48px;
+  }
+}
+
+.kicker {
+  font-family: var(--mono);
+  font-size: var(--s-13);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.screen .kicker {
+  color: var(--silver-dim);
+}
+
+/* The carton's blackout, set by an inline script before first paint on a first visit. */
+html[data-carton="1"] body {
+  overflow: hidden;
+}
+html[data-carton="1"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 900;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
