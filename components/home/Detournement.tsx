@@ -6,7 +6,7 @@ import styles from "./home.module.css";
 export function Detournement() {
   const links = BONUS_LINKS.filter((l) => l.alive);
   return (
-    <Chapter id="detournement" room="paper" labelledBy="detournement-titre" cue className={styles.chapter}>
+    <Chapter id="detournement" room="paper" labelledBy="detournement-titre" cue enter="wipe" className={styles.chapter}>
       <div className="wrap">
         <p className="kicker">Chapitre 6 · Le Grand Détournement</p>
         <h2 id="detournement-titre" className={styles.h2}>

@@ -15,7 +15,7 @@ export function Temoins() {
     still: cardStill(c.id),
   }));
   return (
-    <Chapter id="temoins" room="screen" labelledBy="temoins-titre" className={styles.chapter}>
+    <Chapter id="temoins" room="screen" labelledBy="temoins-titre" enter="dissolve" className={styles.chapter}>
       <div className="wrap">
         <p className="kicker">Chapitre 3 · Les témoins</p>
         <h2 id="temoins-titre" className={styles.h2}>

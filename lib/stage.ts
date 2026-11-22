@@ -29,17 +29,21 @@ export interface StageLine {
 }
 
 export interface Timeline {
-  /** Entry: slide (260 ms) or, under reduced motion, a 150 ms fade. */
+  /** Entry: the still dissolves in (400 ms); under reduced motion, a 150 ms fade. */
   enter: number;
   /** The dub's beat of silence before the subtitle. */
   beat: number;
-  /** Per-word reveal step (0 under reduced motion: the line is shown whole). */
-  perWord: number;
-  /** Time to reveal every word. */
+  /** Words per subtitle group (real subtitles arrive in groups, not letters). */
+  groupSize: number;
+  /** Number of groups in the line. */
+  groups: number;
+  /** Step between groups (0 under reduced motion: the line is shown whole). */
+  perGroup: number;
+  /** Time to reveal every group. */
   reveal: number;
   /** Hold once fully revealed: 1.2 s + 60 ms per word, capped at 6 s. */
   hold: number;
-  /** Exit: 200 ms slide or 150 ms fade. */
+  /** Exit: a slow 700 ms fade-out, or 150 ms under reduced motion. */
   exit: number;
   /** enter + beat + reveal + hold + exit */
   total: number;
@@ -84,14 +88,20 @@ export const STAGE_CONFIG: StageConfig = {
   phoneAutoGap: 45_000,
 };
 
+/**
+ * Round 1 (Erwann, 2026-11-22): « un truc qui parle en fondu ». The Doublage
+ * dissolves in and out instead of sliding, and the subtitle arrives in word
+ * groups. The beat of silence and the hold are the spec's.
+ */
 export const TIMING = {
-  enter: 260,
+  enter: 400,
   beat: 450,
-  perWord: 55,
+  groupSize: 3,
+  perGroup: 240,
   holdBase: 1_200,
   holdPerWord: 60,
   holdMax: 6_000,
-  exit: 200,
+  exit: 700,
   reducedFade: 150,
   entracteHold: 6_000,
 } as const;
@@ -103,13 +113,15 @@ export function wordCount(text: string): number {
 
 export function timeline(text: string, reducedMotion: boolean): Timeline {
   const words = wordCount(text);
+  const groups = Math.ceil(words / TIMING.groupSize);
   const hold = Math.min(TIMING.holdMax, TIMING.holdBase + TIMING.holdPerWord * words);
+  const groupSize = TIMING.groupSize;
   if (reducedMotion) {
-    const t = { enter: TIMING.reducedFade, beat: 0, perWord: 0, reveal: 0, hold, exit: TIMING.reducedFade };
+    const t = { enter: TIMING.reducedFade, beat: 0, groupSize, groups, perGroup: 0, reveal: 0, hold, exit: TIMING.reducedFade };
     return { ...t, total: t.enter + t.hold + t.exit };
   }
-  const reveal = TIMING.perWord * words;
-  const t = { enter: TIMING.enter, beat: TIMING.beat, perWord: TIMING.perWord, reveal, hold, exit: TIMING.exit };
+  const reveal = TIMING.perGroup * groups;
+  const t = { enter: TIMING.enter, beat: TIMING.beat, groupSize, groups, perGroup: TIMING.perGroup, reveal, hold, exit: TIMING.exit };
   return { ...t, total: t.enter + t.beat + t.reveal + t.hold + t.exit };
 }
 
@@ -117,7 +129,7 @@ export function entracteTimeline(reducedMotion: boolean): Timeline {
   const enter = reducedMotion ? TIMING.reducedFade : TIMING.enter;
   const exit = reducedMotion ? TIMING.reducedFade : TIMING.exit;
   const hold = TIMING.entracteHold;
-  return { enter, beat: 0, perWord: 0, reveal: 0, hold, exit, total: enter + hold + exit };
+  return { enter, beat: 0, groupSize: 0, groups: 0, perGroup: 0, reveal: 0, hold, exit, total: enter + hold + exit };
 }
 
 export interface StageOptions<C extends string> {

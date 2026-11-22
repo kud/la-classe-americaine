@@ -32,9 +32,11 @@ interface StageApi {
   /** « Les témoins se taisent »: automatic triggers off. */
   silenced: boolean;
   setSilenced: (v: boolean) => void;
+  /** Something is on stage (a Doublage or the entracte). */
+  busy: boolean;
 }
 
-const Ctx = createContext<StageApi>({ request: () => false, silenced: false, setSilenced: () => {} });
+const Ctx = createContext<StageApi>({ request: () => false, silenced: false, setSilenced: () => {}, busy: false });
 
 export function StageProvider({ children }: { children: React.ReactNode }) {
   const reducedMotion = useReducedMotion();
@@ -108,7 +110,8 @@ export function StageProvider({ children }: { children: React.ReactNode }) {
     };
   }, [stage, request]);
 
-  const api = useMemo(() => ({ request, silenced, setSilenced }), [request, silenced, setSilenced]);
+  const busy = current !== null;
+  const api = useMemo(() => ({ request, silenced, setSilenced, busy }), [request, silenced, setSilenced, busy]);
 
   return (
     <Ctx.Provider value={api}>

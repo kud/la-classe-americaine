@@ -1,23 +1,38 @@
 "use client";
 
+import { useState } from "react";
 import { Chapter } from "../Chapter";
 import { useSound } from "../sound/SoundProvider";
-import { useReducedMotion } from "../hooks";
 import styles from "./home.module.css";
 
 /** The newsreel chapter; the projector whirrs while it is on screen (sound on only). */
 export function HeroChapter({ children }: { children: React.ReactNode }) {
   const { setWhirr } = useSound();
+  const [playing, setPlaying] = useState(true);
   return (
-    <Chapter id="actualites" room="screen" labelledBy="actualites-titre" className={styles.heroChapter} onView={setWhirr}>
+    <Chapter
+      id="actualites"
+      room="screen"
+      labelledBy="actualites-titre"
+      className={styles.heroChapter}
+      onView={(v) => {
+        setWhirr(v);
+        setPlaying(v);
+      }}
+    >
       {children}
+      {/* the projector: moving grain, a flicker, a light leak (round 1); still under reduced motion */}
+      <div className={styles.projector} data-playing={playing} aria-hidden="true">
+        <span className={styles.grain} />
+        <span className={styles.leak} />
+        <span className={styles.flicker} />
+      </div>
     </Chapter>
   );
 }
 
-/** « Ouvrir l'enquête ↓ »: the one iris of the site, opening chapter 2. */
+/** « Ouvrir l'enquête ↓ »: a cut to chapter 2, which opens on its own iris. */
 export function OpenInquiry({ className }: { className?: string }) {
-  const reduced = useReducedMotion();
   return (
     <a
       href="#redaction"
@@ -26,11 +41,6 @@ export function OpenInquiry({ className }: { className?: string }) {
         const target = document.getElementById("redaction");
         if (!target) return;
         e.preventDefault();
-        if (!reduced) {
-          target.classList.remove(styles.iris);
-          void target.offsetWidth;
-          target.classList.add(styles.iris);
-        }
         target.scrollIntoView({ behavior: "instant", block: "start" });
         history.replaceState(null, "", "#redaction");
         document.getElementById("redaction-titre")?.focus({ preventScroll: true });

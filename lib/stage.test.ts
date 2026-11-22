@@ -255,10 +255,10 @@ describe("lines", () => {
 });
 
 describe("timings (§4.1)", () => {
-  it("slide 260 ms, beat 450 ms, 55 ms per word, hold 1.2 s + 60 ms per word, exit 200 ms", () => {
-    const t = timeline("Monde de merde.", false);
-    expect(t).toMatchObject({ enter: 260, beat: 450, perWord: 55, reveal: 165, hold: 1_380, exit: 200 });
-    expect(t.total).toBe(260 + 450 + 165 + 1_380 + 200);
+  it("dissolve in 400 ms, beat 450 ms, word groups of 3 every 240 ms, hold 1.2 s + 60 ms per word, slow fade-out 700 ms", () => {
+    const t = timeline("Tu mélanges la coquetterie et la classe.", false); // 7 words, 3 groups
+    expect(t).toMatchObject({ enter: 400, beat: 450, groupSize: 3, groups: 3, perGroup: 240, reveal: 720, hold: 1_620, exit: 700 });
+    expect(t.total).toBe(400 + 450 + 720 + 1_620 + 700);
   });
 
   it("cap the hold at 6 s", () => {
@@ -268,13 +268,15 @@ describe("timings (§4.1)", () => {
 
   it("under reduced motion: a 150 ms fade, no beat, the line shown whole", () => {
     const t = timeline("Monde de merde.", true);
-    expect(t).toMatchObject({ enter: 150, beat: 0, perWord: 0, reveal: 0, exit: 150 });
+    expect(t).toMatchObject({ enter: 150, beat: 0, perGroup: 0, reveal: 0, exit: 150 });
     expect(entracteTimeline(true).enter).toBe(150);
   });
 });
 
 describe("French typography", () => {
   it("keeps a narrow no-break space with its word", () => {
-    expect(timeline("Attention ! ce flim", false).reveal).toBe(3 * TIMING.perWord);
+    // « Attention ! ce flim » is three words (one group), not four
+    expect(timeline("Attention\u202f! ce flim", false).groups).toBe(1);
+    expect(timeline("un deux trois quatre", false).groups).toBe(2);
   });
 });

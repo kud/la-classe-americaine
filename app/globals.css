@@ -203,3 +203,87 @@ html[data-carton="1"]::after {
     scroll-behavior: auto !important;
   }
 }
+
+/* ———— Round 1: every chapter of the inquiry is one full screen ———— */
+.chapter-screen {
+  min-height: 100svh;
+  scroll-snap-align: start;
+}
+/* Gentle snap between screens: mandatory on desktop, proximity on phones. */
+html:has(main[data-snap]) {
+  scroll-snap-type: y proximity;
+}
+@media (min-width: 760px) and (pointer: fine) {
+  html:has(main[data-snap]) {
+    scroll-snap-type: y mandatory;
+  }
+}
+html:has(main[data-snap]) footer {
+  scroll-snap-align: end;
+}
+
+/* ———— Round 1: each screen enters with a film-grammar transition, once ———— */
+html[data-anim] .enter[data-state="waiting"] {
+  opacity: 0;
+}
+html[data-anim] .enter[data-state="in"][data-enter="iris"] {
+  animation: enter-iris 900ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+html[data-anim] .enter[data-state="in"][data-enter="dissolve"] {
+  animation: enter-dissolve 1100ms ease-out backwards;
+}
+html[data-anim] .enter[data-state="in"][data-enter="wipe"] {
+  animation: enter-wipe 700ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+html[data-anim] .enter[data-state="in"][data-enter="cut"] {
+  animation: enter-cut 360ms steps(1, end) backwards;
+}
+html[data-anim] .enter[data-state="in"][data-enter="black"] {
+  animation: enter-black 1400ms ease-in-out backwards;
+}
+@keyframes enter-iris {
+  from {
+    clip-path: circle(0% at 50% 45%);
+  }
+  to {
+    clip-path: circle(110% at 50% 45%);
+  }
+}
+@keyframes enter-dissolve {
+  from {
+    opacity: 0;
+    filter: brightness(1.5) blur(3px);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+/* the newsreel wipe: a hard edge crossing the frame left to right */
+@keyframes enter-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+/* a hard cut: a held beat of nothing, then the picture */
+@keyframes enter-cut {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes enter-black {
+  from {
+    opacity: 0;
+    filter: brightness(0);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}

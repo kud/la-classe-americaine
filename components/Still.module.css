@@ -104,3 +104,23 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
+
+/* Round 1: a subtle parallax on stills, driven by scroll (no JS). Browsers
+   without scroll-driven animations simply keep the still where it is. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .window .img {
+      scale: 1.08;
+      animation: parallax linear both;
+      animation-timeline: view();
+    }
+  }
+}
+@keyframes parallax {
+  from {
+    translate: 0 -3.5%;
+  }
+  to {
+    translate: 0 3.5%;
+  }
+}

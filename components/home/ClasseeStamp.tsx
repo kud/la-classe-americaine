@@ -6,6 +6,7 @@ import { Chapter } from "../Chapter";
 import { useReducedMotion } from "../hooks";
 import { useSound } from "../sound/SoundProvider";
 import { BRAND } from "@/content/brand";
+import { InkStamp } from "../InkStamp";
 import styles from "./home.module.css";
 
 /** I-7: at 50 % in view, the red stamp CLASSÉE drops across the file (220 ms), and the paper settles 2 px. Once. */
@@ -32,27 +33,23 @@ export function ClasseeStamp({ children, tail }: { children: React.ReactNode; ta
   };
 
   return (
-    <Chapter id="classee" room="paper" labelledBy="classee-titre" className={[styles.chapter, styles.classee].join(" ")} onView={onView}>
+    <Chapter id="classee" room="paper" labelledBy="classee-titre" enter="black" className={[styles.chapter, styles.classee].join(" ")} onView={onView}>
       <m.div animate={paper}>
         {children}
         <div className={styles.stampSlot}>
           {stamped ? (
-            <m.p
-              className={styles.bigStamp}
-              data-testid="stamp-classee"
-              initial={reduced ? { opacity: 0.9, scale: 1, rotate: -6 } : { opacity: 0, scale: 2, rotate: -6 }}
-              animate={{ opacity: 0.9, scale: 1, rotate: -6 }}
-              transition={{ duration: reduced ? 0 : 0.22, ease: [0.2, 0.8, 0.2, 1] }}
-            >
-              {BRAND.stampClassee.delivered ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={BRAND.stampClassee.src} alt="Affaire classée" />
-              ) : (
-                <>
-                  <span className="sr-only">Tampon : affaire </span>CLASSÉE
-                </>
-              )}
-            </m.p>
+            <p className={styles.bigStampSlot}>
+              <InkStamp className={styles.bigStamp} rotate={-6} from={2} duration={0.22} testId="stamp-classee">
+                {BRAND.stampClassee.delivered ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={BRAND.stampClassee.src} alt="Affaire classée" />
+                ) : (
+                  <>
+                    <span className="sr-only">Tampon : affaire </span>CLASSÉE
+                  </>
+                )}
+              </InkStamp>
+            </p>
           ) : (
             <p className="sr-only">Affaire en cours.</p>
           )}

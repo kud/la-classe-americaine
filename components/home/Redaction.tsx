@@ -13,7 +13,7 @@ export function Redaction() {
     { still: still("steven-card"), name: <Pron who="steven" />, actor: "Robert Redford", note: "prononcé « Stévaine », et non pas « Stiveun »" },
   ];
   return (
-    <Chapter id="redaction" room="paper" labelledBy="redaction-titre" cue className={styles.chapter}>
+    <Chapter id="redaction" room="paper" labelledBy="redaction-titre" cue enter="iris" className={styles.chapter}>
       <div className="wrap">
         <p className="kicker">Chapitre 2 · La rédaction</p>
         <h2 id="redaction-titre" className={styles.h2} tabIndex={-1}>
@@ -30,7 +30,7 @@ export function Redaction() {
               </p>
               <p>« Monde de merde. » Je veux savoir ce que ça veut dire.</p>
               <p>
-                Dave, vous êtes sur le coup. Vous travaillerez avec <Pron who="peter" /> et <Pron who="steven" />.
+                « Je vais te mettre sur le dossier Abitbol avec <Pron who="peter" /> et <Pron who="steven" />. »
               </p>
               <p className={styles.memoSign}>— Le patron</p>
             </article>

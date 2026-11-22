@@ -1,0 +1,18 @@
+.stamp {
+  position: relative;
+  display: inline-block;
+}
+.ink {
+  position: absolute;
+  inset: -18% -10%;
+  z-index: -1;
+  border-radius: 40%;
+  background: radial-gradient(closest-side, var(--stamp), transparent);
+  filter: blur(6px);
+  pointer-events: none;
+}
+.label {
+  position: relative;
+  /* the ink bleeds a hair into the paper */
+  text-shadow: 0 0 1px color-mix(in srgb, var(--stamp) 70%, transparent);
+}

@@ -29,18 +29,22 @@ function dockTop(): boolean {
 }
 
 /**
- * Le Doublage (§4.1): a framed still slides in, a beat of silence (the « VF »
- * tag blinks), then the line arrives as a film subtitle, word by word, a beat
- * after the mouth. Hold, then exit the way it came.
+ * Le Doublage (§4.1, round 1): the framed still dissolves in, a beat of
+ * silence (the « VF » tag blinks), then the line arrives as a film subtitle in
+ * word groups, a beat after the mouth. Hold, then a slow fade-out.
  */
 export function Doublage({ appearance, reducedMotion, phone, onDone }: Props) {
   const { character, line, timeline } = appearance;
   const who = CHARACTERS[character];
   const still = cardStill(character);
   const words = line.text.split(/[ \t\n]+/).filter(Boolean);
+  const groups: string[] = [];
+  for (let i = 0; i < words.length; i += timeline.groupSize || words.length) {
+    groups.push(words.slice(i, i + (timeline.groupSize || words.length)).join(" "));
+  }
 
   const [visible, setVisible] = useState(true);
-  const [revealed, setRevealed] = useState(reducedMotion ? words.length : 0);
+  const [revealed, setRevealed] = useState(reducedMotion ? groups.length : 0);
   const [vf, setVf] = useState(false);
   const [top] = useState(() => phone && typeof window !== "undefined" && dockTop());
 
@@ -76,7 +80,7 @@ export function Doublage({ appearance, reducedMotion, phone, onDone }: Props) {
     } else {
       at(timeline.enter, () => setVf(true));
       const start = timeline.enter + timeline.beat;
-      words.forEach((_, i) => at(start + timeline.perWord * (i + 1), () => setRevealed(i + 1)));
+      groups.forEach((_, i) => at(start + timeline.perGroup * i, () => setRevealed(i + 1)));
       at(start + timeline.reveal, () => startHold(timeline.hold));
     }
     const list = timers.current;
@@ -105,7 +109,7 @@ export function Doublage({ appearance, reducedMotion, phone, onDone }: Props) {
   const pause = () => {
     if (paused.current) return;
     paused.current = true;
-    setRevealed(words.length);
+    setRevealed(groups.length);
     const h = hold.current;
     if (h.timer) {
       window.clearTimeout(h.timer);
@@ -119,11 +123,8 @@ export function Doublage({ appearance, reducedMotion, phone, onDone }: Props) {
     startHold(hold.current.remaining);
   };
 
-  const off = reducedMotion
-    ? { opacity: 0 }
-    : phone
-      ? { y: top ? "-130%" : "130%", opacity: 1 }
-      : { x: "-120%", opacity: 1 };
+  // a dissolve, as the film's own transitions: no slide, the faintest settle
+  const off = reducedMotion ? { opacity: 0 } : { opacity: 0, filter: "brightness(1.6) blur(2px)" };
 
   return (
     <AnimatePresence onExitComplete={() => onDone(appearance.id)}>
@@ -134,8 +135,8 @@ export function Doublage({ appearance, reducedMotion, phone, onDone }: Props) {
           data-testid="doublage"
           data-character={character}
           initial={off}
-          animate={{ x: 0, y: 0, opacity: 1, transition: { duration: timeline.enter / 1000, ease: EASE_IN_OUT } }}
-          exit={{ ...off, transition: { duration: timeline.exit / 1000, ease: "easeIn" } }}
+          animate={{ opacity: 1, filter: "brightness(1) blur(0px)", transition: { duration: timeline.enter / 1000, ease: EASE_IN_OUT } }}
+          exit={{ ...off, transition: { duration: timeline.exit / 1000, ease: "easeInOut" } }}
           onPointerEnter={pause}
           onPointerLeave={resume}
           onFocus={pause}
@@ -151,9 +152,9 @@ export function Doublage({ appearance, reducedMotion, phone, onDone }: Props) {
           </div>
           <p className={styles.sub} aria-hidden="true">
             <span className={styles.who}>{who.name}</span>
-            {words.map((w, i) => (
+            {groups.map((g, i) => (
               <span key={i} className={[styles.w, i < revealed ? styles.on : ""].join(" ")}>
-                {w}{" "}
+                {g}{" "}
               </span>
             ))}
           </p>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { m, useAnimationControls } from "motion/react";
 import { useReducedMotion } from "./hooks";
 import { useSound } from "./sound/SoundProvider";
+import { InkStamp } from "./InkStamp";
 import styles from "./EvidenceSlip.module.css";
 
 export interface SlipQuote {
@@ -95,17 +96,11 @@ export function EvidenceSlip({ quote, link = true, headingLevel = 3 }: { quote: 
         )}
       </div>
       {stamps > 0 && (
-        <m.span
-          key={stamps}
-          className={styles.stamp}
-          aria-hidden="true"
-          initial={reduced ? { opacity: 0.92, scale: 1, rotate: -8 } : { opacity: 0, scale: 1.6, rotate: -8 }}
-          animate={{ opacity: 0.92, scale: 1, rotate: -8 }}
-          transition={{ duration: reduced ? 0 : 0.18, ease: "easeOut" }}
-          data-testid="stamp-copie"
-        >
-          COPIÉ
-        </m.span>
+        <span className={styles.stampSlot} aria-hidden="true">
+          <InkStamp key={stamps} className={styles.stamp} rotate={-8} duration={0.18} testId="stamp-copie">
+            COPIÉ
+          </InkStamp>
+        </span>
       )}
       <span className="sr-only" role="status">
         {status}

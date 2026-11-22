@@ -10,16 +10,15 @@
  * textStatus "attested" (and filmChecked: true), and delete it here.
  */
 export const PENDING_QUOTES: { n: number; text: string; why: string }[] = [
-  { n: 6, text: "Tu fais un amalgame entre la coquetterie et la classe.", why: "wording ◌" },
-  { n: 11, text: "Tes excuses tu peux te les coller au cul, tout comme ton bifteck", why: "V1 only ◌" },
-  { n: 12, text: "C'est ça, la puissance intellectuelle", why: "V1 only ◌" },
-  { n: 13, text: "Moi ce que je vois, c'est que dans deux secondes je vais te botter le cul.", why: "V1 only ◌" },
-  { n: 14, text: "Eh, tu sais à qui tu parles, là ?", why: "V1 only ◌" },
-  { n: 15, text: "Tiens regarde ! Les Anglais ont débarqué.", why: "V1 only ◌" },
-  { n: 16, text: "dring", why: "gag ✓, wording ◌" },
-  { n: 17, text: "envoie son gorille", why: "gag ✓, wording ◌" },
-  { n: 18, text: "Pas mal, non ? C'est français.", why: "memed, source ◌" },
-  { n: 0, text: "Tu veux te mettre sur le coup mais tu travailleras avec Peter et Steven", why: "memo paraphrase, exact wording ◌" },
+  { n: 17, text: "envoie son gorille", why: "gag ✓, exact wording not transcribed" },
+  // superseded wordings, kept so the guard catches them if they creep back
+  { n: 6, text: "Tu fais un amalgame entre la coquetterie et la classe.", why: "corrected by the transcription" },
+  { n: 7, text: "Ah, voilà enfin le roi de la classe !", why: "corrected by the transcription" },
+  { n: 10, text: "se coupe les morceaux de nichon", why: "corrected by the transcription" },
+  { n: 11, text: "Tes excuses tu peux te les coller au cul", why: "corrected by the transcription" },
+  { n: 13, text: "Moi ce que je vois, c'est que dans deux secondes", why: "corrected by the transcription" },
+  { n: 15, text: "On va être obligé de passer par derrière", why: "corrected by the transcription" },
+  { n: 0, text: "Tu veux te mettre sur le coup mais tu travailleras avec Peter et Steven", why: "corrected: « Je vais te mettre sur le dossier Abitbol avec Peter et Steven. »" },
 ];
 
 /**

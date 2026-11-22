@@ -1,14 +1,15 @@
 /* ———————————————————— chapters ———————————————————— */
+/* Round 1: every chapter is one full screen, its content centred. */
 .chapter {
   padding-block: 72px;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @media (min-width: 760px) {
   .chapter {
-    padding-block: 110px;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding-block: 72px;
   }
 }
 .h2 {
@@ -172,19 +173,6 @@
   border-bottom: 1px solid var(--silver-dim);
   font-size: var(--s-15);
   text-decoration: none;
-}
-
-/* the iris: used once, opening the inquiry */
-.iris {
-  animation: iris 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-@keyframes iris {
-  from {
-    clip-path: circle(0% at 50% 30vh);
-  }
-  to {
-    clip-path: circle(150% at 50% 30vh);
-  }
 }
 
 /* ———————————————————— 2 · La Rédaction ———————————————————— */
@@ -572,10 +560,11 @@
   display: grid;
   place-items: center;
 }
-.bigStamp {
-  display: inline-block;
+.bigStampSlot {
   margin: 24px auto 0;
   max-width: none;
+}
+.bigStamp {
   padding: 6px 22px;
   border: 5px solid var(--stamp);
   color: var(--stamp);
@@ -606,8 +595,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .heroImg,
-  .iris {
+  .heroImg {
     animation: none;
   }
   .lastWords {
@@ -615,5 +603,100 @@
   }
   .reviewBody {
     transition: opacity 150ms linear;
+  }
+}
+
+/* ———— Round 1: the projector over the newsreel ———— */
+.heroChapter {
+  position: relative;
+  overflow: hidden;
+}
+.projector {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+.grain,
+.leak,
+.flicker {
+  position: absolute;
+  display: block;
+}
+.grain {
+  inset: -60%;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.9s steps(6) infinite;
+}
+.leak {
+  inset: -20%;
+  background:
+    radial-gradient(40% 50% at 12% 18%, #ffcf9a33, transparent 70%),
+    radial-gradient(30% 40% at 88% 82%, #ff9e6a1f, transparent 70%);
+  mix-blend-mode: screen;
+  animation: leak 9s ease-in-out infinite alternate;
+}
+.flicker {
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  animation: flicker 5.3s steps(1, end) infinite;
+}
+.projector[data-playing="false"] span {
+  animation-play-state: paused;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-6%, 4%); }
+  40% { transform: translate(5%, -3%); }
+  60% { transform: translate(-3%, -6%); }
+  80% { transform: translate(6%, 5%); }
+  100% { transform: translate(-2%, 2%); }
+}
+@keyframes leak {
+  0% { opacity: 0.55; transform: translate(0, 0) scale(1); }
+  45% { opacity: 1; transform: translate(3%, 2%) scale(1.05); }
+  100% { opacity: 0.35; transform: translate(-2%, -1%) scale(1); }
+}
+@keyframes flicker {
+  0%, 100% { opacity: 0; }
+  3% { opacity: 0.07; }
+  4% { opacity: 0; }
+  41% { opacity: 0.05; }
+  42% { opacity: 0; }
+  43% { opacity: 0.09; }
+  44% { opacity: 0; }
+  77% { opacity: 0.04; }
+  78% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grain,
+  .leak,
+  .flicker {
+    animation: none;
+  }
+  .flicker {
+    display: none;
+  }
+}
+
+/* Round 1: the newsreel still drifts against the scroll (translate composes with the push-in) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .heroFrame picture {
+      display: block;
+      animation: heroParallax linear both;
+      animation-timeline: view();
+    }
+  }
+}
+@keyframes heroParallax {
+  from {
+    translate: 0 -2.5%;
+  }
+  to {
+    translate: 0 6%;
   }
 }

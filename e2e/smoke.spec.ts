@@ -53,7 +53,7 @@ test("the 404 is a real 404, titled « Monde de merde », and George says it", a
   const dub = page.getByTestId("doublage");
   await expect(dub).toBeVisible({ timeout: 3000 });
   await expect(dub).toHaveAttribute("data-character", "george");
-  await expect(page.getByTestId("stage-announcer")).toContainText("Monde de merde.");
+  await expect(page.getByTestId("stage-announcer")).toContainText("monde de merde");
   await page.getByRole("link", { name: "Retourner à l'enquête" }).click();
   await expect(page).toHaveURL("/");
 });
@@ -91,7 +91,7 @@ test("a witness speaks, and never two at once", async ({ page }) => {
   const dub = page.getByTestId("doublage");
   await expect(dub).toHaveCount(1);
   await expect(dub).toHaveAttribute("data-character", "jose");
-  await expect(dub).toContainText("Ah, voilà enfin le roi de la classe");
+  await expect(dub).toContainText("L'homme trop bien sapé, Abitbol");
   // a second witness while José is on stage: the tap closes him; nothing doubles up
   await page.getByTestId("witness-welles").click();
   await expect(page.getByTestId("doublage")).toHaveCount(0, { timeout: 2000 });
@@ -111,7 +111,7 @@ test("copying a quote stamps the slip « COPIÉ »", async ({ page, context, bro
   await slip.getByRole("button", { name: "Copier" }).click();
   await expect(slip.getByTestId("stamp-copie")).toBeVisible();
   const copied = await page.evaluate(() => navigator.clipboard.readText());
-  expect(copied).toContain("Monde de merde.");
+  expect(copied).toContain("monde de merde");
   expect(copied).toContain("George Abitbol");
 });
 
@@ -158,4 +158,61 @@ test("« Les témoins se taisent » is remembered", async ({ page }) => {
   await page.getByTestId("taisent").check();
   await page.reload();
   await expect(page.getByTestId("taisent")).toBeChecked();
+});
+
+test.describe("round 1", () => {
+  test("every chapter of the inquiry fills the screen", async ({ page }) => {
+    await returning(page);
+    await page.goto("/");
+    const vh = page.viewportSize()!.height;
+    const heights = await page.locator("main .chapter-screen").evaluateAll((els) => els.map((e) => e.getBoundingClientRect().height));
+    expect(heights.length).toBe(7);
+    for (const h of heights) expect(h).toBeGreaterThanOrEqual(vh - 1);
+  });
+
+  test("Page Down moves one screen at a time (desktop)", async ({ page, isMobile }) => {
+    test.skip(isMobile, "phones snap by proximity");
+    await returning(page);
+    await page.goto("/");
+    await page.locator("body").click({ position: { x: 5, y: 5 } });
+    await page.keyboard.press("PageDown");
+    await expect
+      .poll(async () => page.evaluate(() => Math.abs(window.scrollY - document.getElementById("redaction")!.offsetTop)), { timeout: 3000 })
+      .toBeLessThanOrEqual(2);
+  });
+
+  test("screens enter once, with their transition", async ({ page }) => {
+    await returning(page);
+    await page.goto("/");
+    await expect(page.locator("html")).toHaveAttribute("data-anim", "1");
+    const redaction = page.locator("#redaction .enter");
+    await expect(redaction).toHaveAttribute("data-enter", "iris");
+    await expect(redaction).toHaveAttribute("data-state", "waiting");
+    await page.locator("#redaction").scrollIntoViewIfNeeded();
+    await expect(redaction).toHaveAttribute("data-state", "in");
+  });
+
+  test("nothing waits for an entrance under reduced motion", async ({ page }) => {
+    await returning(page);
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/");
+    await expect(page.locator("html")).not.toHaveAttribute("data-anim", "1");
+    await expect(page.locator("#pieces .enter")).toHaveCSS("opacity", "1");
+  });
+
+  test("a background voice murmurs at the edge, one at a time", async ({ page, isMobile }) => {
+    test.skip(isMobile, "no murmurs on phones");
+    await returning(page);
+    await page.emulateMedia({ reducedMotion: "reduce" }); // keeps the idle Doublage out of the way
+    await page.clock.install();
+    await page.goto("/");
+    let seen = 0;
+    for (let s = 0; s < 30 && seen === 0; s++) {
+      await page.clock.runFor(1000);
+      seen = await page.getByTestId("murmur").count();
+    }
+    expect(seen).toBe(1);
+    // decorative: the layer is hidden from assistive technology
+    await expect(page.getByTestId("murmur").locator("xpath=..")).toHaveAttribute("aria-hidden", "true");
+  });
 });

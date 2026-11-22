@@ -53,9 +53,10 @@ export const viewport: Viewport = {
 /**
  * Before first paint on the home page: if the opening card has never been
  * shown in this browser (or storage is unavailable), black the page out so the
- * card arrives as a cut, not after a flash of the newsreel.
+ * card arrives as a cut, not after a flash of the newsreel. On every page:
+ * mark that motion is allowed, so screens may wait for their entrance.
  */
-const CARTON_SCRIPT = `(function(){var d=document.documentElement;if(location.pathname!=="/")return;try{if(localStorage.getItem("lca-carton")!=="1")d.dataset.carton="1"}catch(e){d.dataset.carton="1"}})();`;
+const CARTON_SCRIPT = `(function(){var d=document.documentElement;try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)d.dataset.anim="1"}catch(e){}if(location.pathname!=="/")return;try{if(localStorage.getItem("lca-carton")!=="1")d.dataset.carton="1"}catch(e){d.dataset.carton="1"}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

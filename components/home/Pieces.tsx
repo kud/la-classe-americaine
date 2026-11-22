@@ -9,7 +9,7 @@ import styles from "./home.module.css";
 export function Pieces() {
   const slips = HOME_EVIDENCE.map((slug) => toSlip(quoteBySlug(slug)!));
   return (
-    <Chapter id="pieces" room="paper" labelledBy="pieces-titre" cue className={styles.chapter}>
+    <Chapter id="pieces" room="paper" labelledBy="pieces-titre" cue enter="wipe" className={styles.chapter}>
       <div className="wrap">
         <p className="kicker">Chapitre 4 · Pièces à conviction</p>
         <h2 id="pieces-titre" className={styles.h2}>
