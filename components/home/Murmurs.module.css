@@ -1,0 +1,31 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+}
+.murmur {
+  position: absolute;
+  top: 50%;
+  margin: 0;
+  max-width: none;
+  max-height: 80vh;
+  writing-mode: vertical-rl;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #9e978a;
+  mix-blend-mode: difference;
+  translate: 0 -50%;
+}
+.left {
+  left: 10px;
+  rotate: 180deg;
+}
+.right {
+  right: 10px;
+}

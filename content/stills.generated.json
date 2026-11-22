@@ -1,0 +1,86 @@
+{
+  "george-hero": {
+    "src": "/stills/george-hero.8e3b62f2.webp",
+    "width": 1344,
+    "height": 1680,
+    "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAABQAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JaQAAUqduJ6QuUAD+7qFYFRGXssShey+b+p5fEHQ6BAAA"
+  },
+  "george-wide": {
+    "src": "/stills/george-wide.903aec7c.webp",
+    "width": 1520,
+    "height": 855,
+    "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAkAA4BaJaQAAiDtnHEEAP71e7SyQFewp5TCr9odUR+fAAA="
+  },
+  "george-card": {
+    "src": "/stills/george-card.ac7bcc4f.webp",
+    "width": 724,
+    "height": 905,
+    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JZQCdAB9ErpUTvkPmYH4AAP7OuumtB8weR7MpziJ9AUyfXodB5yAToDenQAkcPS5gFUo/4n3pQq3SfUm0bQuzkAA="
+  },
+  "dave-card": {
+    "src": "/stills/dave-card.e6790fc4.webp",
+    "width": 564,
+    "height": 705,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoQABQAPu1mqk4ppaOiMAgBMB2JYwCw7Bp3gtbbMsAA/tn1jJG5FoM6ZMdAVuy1LjkrxLULDIghUv7/M9ElBNqjJ0pt5CPEhAAAAA=="
+  },
+  "peter-card": {
+    "src": "/stills/peter-card.a3cda3b3.webp",
+    "width": 366,
+    "height": 458,
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoQABQAPu1kqU2ppaQiMAgBMB2JZwDG9CHf5+j9ZXhSRdAA/u6Et5g1+G/6akBOZSlrgtqD9kcM6yr89fArYK4OKgo2gAAA"
+  },
+  "steven-card": {
+    "src": "/stills/steven-card.3a325f76.webp",
+    "width": 1152,
+    "height": 1440,
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoQABQAPu1kqU4ppaOiMAgBMB2JZVnyTKATfY9Sc5QAAP7rqgxPv4QbHQJ+CKLUgTu6MoMQthaS2+8817ZSJyvAyCeQ0uAA"
+  },
+  "jose-card": {
+    "src": "/stills/jose-card.b836e1c0.webp",
+    "width": 940,
+    "height": 1175,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JYwCdABpC1FgZLHYlSSYAAP61Swpgaj14mHrFuN8xlL/2y757UXBlKqVW1YGQsCncK0ckFHXBQliNvbsOO/3y0fgAAA=="
+  },
+  "jose-pirate": {
+    "src": "/stills/jose-pirate.844104a3.webp",
+    "width": 940,
+    "height": 1175,
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoQABQAPu1kqU2ppaQiMAgBMB2JYwCdACLwBprnwmiHDGEcgAD8BHYWngtlDIa8DMDq2SE5tsxkwmhiHwqxdkr9m9+VzCyt3C34EUGi+780M+StpofQTK3nyMN2SAw82OOQ8JIWAAA="
+  },
+  "dino-card": {
+    "src": "/stills/dino-card.0f0a1f32.webp",
+    "width": 500,
+    "height": 625,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JZQCdAB4TgX2i2TmDhkC4AP7r57kNz1OLrLXXeLxHPlusLbfeZfFoc4rH50wI/oC3CSz+wpyo791LNL9J6VvW4v0cAA=="
+  },
+  "frankie-card": {
+    "src": "/stills/frankie-card.9aa06004.webp",
+    "width": 530,
+    "height": 663,
+    "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAwCdASoQABQAPu1iqk2ppaQiMAgBMB2JYwCsABbvzsjiZDdL+Z6AAP7r57kY5TCko8/2L0CZKZgLsUm5SVs5Jkkg/ydJIY55NCjrS01IZhYl/2MAP8yYkc3UpwhNLWlXOAAA"
+  },
+  "welles-card": {
+    "src": "/stills/welles-card.220fc623.webp",
+    "width": 1114,
+    "height": 1393,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoQABQAPu1iqk2ppaQiMAgBMB2JZwDImBZMvkiJBbJ9gAD82MZfsYR02b2a8k68/2C4zlAvQx9XpkacBhdfdGVF8nxLEUXg/cUAAA=="
+  },
+  "george-cowboy": {
+    "src": "/stills/george-cowboy.791d69ad.webp",
+    "width": 564,
+    "height": 705,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAwCdASoQABQAPu1kqk4ppaQiMAgBMB2JZwAAUcxDcQB7nXtoAAD+26pu0SrJ3FtFYHO/gaqBsGjZCDNkq8nWOAA="
+  },
+  "george-sleeping": {
+    "src": "/stills/george-sleeping.566915b9.webp",
+    "width": 1600,
+    "height": 900,
+    "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoQAAkAA4BaJZwCdAEOd7o+hQAA/r5oy8dY+32M1Ls1+K8pzXDTf8AA"
+  },
+  "redaction-sofa": {
+    "src": "/stills/redaction-sofa.c48e9108.webp",
+    "width": 1600,
+    "height": 900,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoQAAkAA4BaJZQCdAEOxO6wkgAA/oR9Pmtlw97pPqmn+/laDZ8A76qaHKBgAAAA"
+  }
+}

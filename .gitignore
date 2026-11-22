@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+
+# stills pipeline: masters and film files are never committed
+/assets/masters/
+*.mkv
+*.mp4
+*.avi

@@ -1,0 +1,45 @@
+.room {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 96px 16px 160px;
+  text-align: center;
+}
+.inner {
+  max-width: 40rem;
+}
+.card {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0 0 24px;
+  padding: 6px 12px;
+  border: 1px solid var(--silver-dim);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.title {
+  margin: 0;
+  font-size: var(--s-72);
+  line-height: 1;
+}
+.text {
+  margin: 16px auto;
+  color: var(--silver-dim);
+}
+.globe {
+  width: 120px;
+  height: 120px;
+  margin: 28px auto 0;
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 28px;
+  padding: 10px 16px;
+  border: 1px solid var(--silver-dim);
+  text-decoration: none;
+  font-size: var(--s-15);
+}

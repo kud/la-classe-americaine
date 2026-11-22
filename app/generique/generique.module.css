@@ -1,0 +1,53 @@
+.lead {
+  color: var(--silver-dim);
+  font-size: var(--s-17);
+}
+.body {
+  padding-block: 56px 96px;
+}
+.columns {
+  display: grid;
+  gap: 48px 64px;
+}
+@media (min-width: 1024px) {
+  .columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.columns h2 {
+  font-size: var(--s-32);
+  margin: 0 0 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.dl {
+  margin: 0;
+}
+.dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  gap: 4px 16px;
+  padding-block: 6px;
+  border-bottom: 1px dashed var(--rule);
+}
+.dl dt {
+  color: var(--ink-dim);
+  font-size: var(--s-15);
+}
+.dl dd {
+  margin: 0;
+}
+.note {
+  font-size: var(--s-13);
+  color: var(--ink-dim);
+}
+.films {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.films li {
+  margin-block: 4px;
+}
+.rights p {
+  max-width: 62ch;
+}
