@@ -18,7 +18,7 @@ export interface SlipQuote {
 
 /** The line as it travels: the quote, who said it when attested, the film. */
 export function citation(q: SlipQuote): string {
-  return `« ${q.text} »${q.speaker ? ` — ${q.speaker}` : ""}, La Classe Américaine (1993)`;
+  return `« ${q.text} »${q.speaker ? ` — ${q.speaker}` : ""}, La Classe Américaine (1993)`;
 }
 
 /**
@@ -79,7 +79,7 @@ export function EvidenceSlip({ quote, link = true, headingLevel = 3 }: { quote: 
         <q>{quote.text}</q>
       </H>
       <p className={styles.who}>
-        {quote.speaker ?? "Témoin : non identifié"} · {quote.scene}
+        {quote.speaker ?? "Témoin : non identifié"} · {quote.scene}
       </p>
       <div className={styles.actions}>
         <button type="button" onClick={() => copy(citation(quote), "Réplique copiée.")}>

@@ -8,7 +8,7 @@ export function Footer() {
     <footer className={["paper", styles.footer].join(" ")}>
       <div className="wrap">
         <div className={styles.top}>
-          <Link href="/" className={styles.home} aria-label="Le Flim — retour à l'enquête">
+          <Link href="/" className={styles.home}>
             <Wordmark />
           </Link>
           <nav aria-label="Pied de page" className={styles.nav}>

@@ -9,8 +9,8 @@ import styles from "./home.module.css";
 export function Redaction() {
   const ids = [
     { still: still("dave-card"), name: <>Dave</>, actor: "Paul Newman", note: null },
-    { still: still("peter-card"), name: <Pron who="peter" />, actor: "Dustin Hoffman", note: "prononcé « Pétaire », et non pas « Piteur »" },
-    { still: still("steven-card"), name: <Pron who="steven" />, actor: "Robert Redford", note: "prononcé « Stévaine », et non pas « Stiveun »" },
+    { still: still("peter-card"), name: <Pron who="peter" />, actor: "Dustin Hoffman", note: "prononcé « Pétaire », et non pas « Piteur »" },
+    { still: still("steven-card"), name: <Pron who="steven" />, actor: "Robert Redford", note: "prononcé « Stévaine », et non pas « Stiveun »" },
   ];
   return (
     <Chapter id="redaction" room="paper" labelledBy="redaction-titre" cue className={styles.chapter}>
@@ -24,11 +24,11 @@ export function Redaction() {
             <article className={styles.memo} aria-label="Note de service">
               <p className={styles.memoHead}>NOTE DE SERVICE</p>
               <p className={styles.memoMeta}>
-                À : Dave, <Pron who="peter" />, <Pron who="steven" />
+                À : Dave, <Pron who="peter" />, <Pron who="steven" />
                 <br />
-                Objet : Abitbol, George
+                Objet : Abitbol, George
               </p>
-              <p>« Monde de merde. » Je veux savoir ce que ça veut dire.</p>
+              <p>« Monde de merde. » Je veux savoir ce que ça veut dire.</p>
               <p>
                 Dave, vous êtes sur le coup. Vous travaillerez avec <Pron who="peter" /> et <Pron who="steven" />.
               </p>

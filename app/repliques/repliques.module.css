@@ -55,7 +55,7 @@
   font-size: var(--s-72);
   line-height: 1.02;
   max-width: 18ch;
-  quotes: "« " " »";
+  quotes: "«\202F" "\202F»";
 }
 .bigQuote::before {
   content: open-quote;

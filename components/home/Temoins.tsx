@@ -19,7 +19,7 @@ export function Temoins() {
       <div className="wrap">
         <p className="kicker">Chapitre 3 · Les témoins</p>
         <h2 id="temoins-titre" className={styles.h2}>
-          Ils l&apos;ont connu au Texas, prononcé « Tegzass ».
+          Ils l&apos;ont connu au Texas, prononcé « Tegzass ».
         </h2>
         <p className={styles.lede}>Touchez un témoin pour l&apos;entendre. En version française, évidemment.</p>
         <WitnessRow cards={cards} />

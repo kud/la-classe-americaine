@@ -272,3 +272,9 @@ describe("timings (§4.1)", () => {
     expect(entracteTimeline(true).enter).toBe(150);
   });
 });
+
+describe("French typography", () => {
+  it("keeps a narrow no-break space with its word", () => {
+    expect(timeline("Attention ! ce flim", false).reveal).toBe(3 * TIMING.perWord);
+  });
+});

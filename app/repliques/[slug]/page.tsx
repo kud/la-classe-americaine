@@ -23,9 +23,9 @@ export async function generateMetadata({ params }: PageProps<"/repliques/[slug]"
   const speaker = attributedSpeaker(q);
   const who = speaker ? CHARACTERS[speaker].name : null;
   return {
-    title: `« ${q.text} »`,
+    title: `« ${q.text} »`,
     description: `${who ? `${who}, ` : ""}La Classe Américaine — Le Grand Détournement (1993). Pièce n° ${q.n}.`,
-    openGraph: { title: `« ${q.text} »`, type: "article" },
+    openGraph: { title: `« ${q.text} »`, type: "article" },
   };
 }
 
@@ -43,7 +43,7 @@ export default async function Replique({ params }: PageProps<"/repliques/[slug]"
           <div>
             <blockquote className={styles.bigQuote}>{q.text}</blockquote>
             <p className={styles.meta}>
-              {who ? who.name : "Témoin : non identifié"}
+              {who ? who.name : "Témoin : non identifié"}
               {who?.actor && who.actor !== "lui-même" ? ` (${who.actor})` : ""} · {q.scene}
             </p>
           </div>

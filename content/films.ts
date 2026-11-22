@@ -34,7 +34,7 @@ export const SOURCE_FILMS: SourceFilm[] = [
  */
 export const BONUS_LINKS: { label: string; url: string; alive: boolean }[] = [
   {
-    label: "Le documentaire : les réalisateurs racontent le Grand Détournement",
+    label: "Le documentaire : les réalisateurs racontent le Grand Détournement",
     url: "https://www.dailymotion.com/video/x8zvay",
     alive: false,
   },

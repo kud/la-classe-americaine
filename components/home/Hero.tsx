@@ -45,8 +45,8 @@ export function Hero() {
             Atoll de Pom Pom Galli, Ocean South Pacific, entre l&apos;Australia et la South America.
           </p>
           <p className={styles.dek}>
-            George Abitbol s&apos;est éteint au large de Pom Pom Galli. Ses derniers mots :
-            <span className={styles.lastWords}>« Monde de merde. »</span>
+            George Abitbol s&apos;est éteint au large de Pom Pom Galli. Ses derniers mots :
+            <span className={styles.lastWords}>« Monde de merde. »</span>
           </p>
           <p className={styles.byline}>
             La Classe Américaine — Le Grand Détournement · un flim de Michel Hazanavicius et Dominique Mézerette ·

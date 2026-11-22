@@ -64,7 +64,7 @@ export const CHARACTERS: Record<CharacterId, Character> = {
     note: "Prononcé Pétaire.",
     pronunciation: { said: "Pétaire", not: "Piteur" },
     witness: true,
-    silence: "[Peter, prononcé « Pétaire », ne dit rien.]",
+    silence: "[Peter, prononcé « Pétaire », ne dit rien.]",
   },
   steven: {
     id: "steven",
@@ -74,7 +74,7 @@ export const CHARACTERS: Record<CharacterId, Character> = {
     note: "Prononcé Stévaine.",
     pronunciation: { said: "Stévaine", not: "Stiveun" },
     witness: true,
-    silence: "[Steven, prononcé « Stévaine », ne dit rien.]",
+    silence: "[Steven, prononcé « Stévaine », ne dit rien.]",
   },
   jose: {
     id: "jose",

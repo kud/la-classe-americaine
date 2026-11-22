@@ -30,7 +30,7 @@
   line-height: 1.2;
 }
 .line q {
-  quotes: "« " " »";
+  quotes: "«\202F" "\202F»";
 }
 .who {
   margin: 0;

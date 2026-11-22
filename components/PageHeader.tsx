@@ -7,7 +7,7 @@ export function PageHeader({ kicker, title, id, children }: { kicker: string; ti
   return (
     <header className={["screen", styles.header].join(" ")}>
       <div className="wrap">
-        <Link href="/" className={styles.home} aria-label="Le Flim — retour à l'enquête">
+        <Link href="/" className={styles.home}>
           <Wordmark />
         </Link>
         <p className="kicker">{kicker}</p>

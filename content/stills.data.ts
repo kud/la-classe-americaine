@@ -63,7 +63,7 @@ export const STILLS: StillSpec[] = [
     scene: "Le bateau, au début du flim",
     sourceFilm: { title: "Blood Alley", status: "uncertain" },
     placeholder: { file: "stills-source/george-capitaine.jpg" },
-    todo: "Source fan (1000 px, compressée) ; vers 00:00:35 (« V12 au capitaine George Abitbol »), à reprendre du flim.",
+    todo: "Source fan (1000 px, compressée) ; vers 00:00:35 (« V12 au capitaine George Abitbol »), à reprendre du flim.",
   },
   {
     id: "dave-card",
@@ -74,7 +74,7 @@ export const STILLS: StillSpec[] = [
     character: "dave",
     scene: "La rédaction",
     placeholder: { file: "placeholder-stills/deco_1.jpg", rect: [20, 215, 260, 313] },
-    todo: "Plan de Dave ; le placeholder est découpé dans un montage V1 de 374 px.",
+    todo: "Plan de Dave ; le placeholder est découpé dans un montage V1 de 374 px.",
   },
   {
     id: "peter-card",
@@ -86,7 +86,7 @@ export const STILLS: StillSpec[] = [
     scene: "La rédaction",
     sourceFilm: { title: "All the President's Men", status: "uncertain" },
     placeholder: { file: "placeholder-stills/deco_2.jpg", rect: [150, 0, 224, 285] },
-    todo: "Plan de Peter ; le placeholder est découpé dans un montage V1 retouché à la peinture.",
+    todo: "Plan de Peter ; le placeholder est découpé dans un montage V1 retouché à la peinture.",
   },
   {
     id: "steven-card",
@@ -98,7 +98,7 @@ export const STILLS: StillSpec[] = [
     scene: "La rédaction",
     sourceFilm: { title: "All the President's Men", status: "uncertain" },
     placeholder: { file: "stills-source/steven-card.jpg", rect: [100, 10, 700, 587] },
-    todo: "Source fan (1281 px, SD agrandie) ; vers 00:32:25, à reprendre du flim.",
+    todo: "Source fan (1281 px, SD agrandie) ; vers 00:32:25, à reprendre du flim.",
   },
   {
     id: "jose-card",
@@ -109,7 +109,7 @@ export const STILLS: StillSpec[] = [
     character: "jose",
     scene: "L'interview de José",
     placeholder: { file: "stills-source/jose-card.jpg", rect: [20, 10, 1240, 587] },
-    todo: "Source fan (1281 px, SD agrandie) ; vers 00:35:01, à reprendre du flim.",
+    todo: "Source fan (1281 px, SD agrandie) ; vers 00:35:01, à reprendre du flim.",
   },
   {
     id: "jose-pirate",
@@ -121,7 +121,7 @@ export const STILLS: StillSpec[] = [
     scene: "Sur le bateau, José accueille George",
     sourceFilm: { title: "The Crimson Pirate", status: "uncertain" },
     placeholder: { file: "stills-source/jose-pirate.jpg", rect: [20, 10, 1240, 587] },
-    todo: "Source fan (1281 px, SD agrandie) ; vers 00:01:19, à reprendre du flim.",
+    todo: "Source fan (1281 px, SD agrandie) ; vers 00:01:19, à reprendre du flim.",
   },
 ];
 

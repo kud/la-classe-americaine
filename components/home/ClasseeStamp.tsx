@@ -9,7 +9,7 @@ import { BRAND } from "@/content/brand";
 import styles from "./home.module.css";
 
 /** I-7: at 50 % in view, the red stamp CLASSÉE drops across the file (220 ms), and the paper settles 2 px. Once. */
-export function ClasseeStamp({ children }: { children: React.ReactNode }) {
+export function ClasseeStamp({ children, tail }: { children: React.ReactNode; tail: React.ReactNode }) {
   const reduced = useReducedMotion();
   const { thud } = useSound();
   const [stamped, setStamped] = useState(false);
@@ -57,6 +57,7 @@ export function ClasseeStamp({ children }: { children: React.ReactNode }) {
             <p className="sr-only">Affaire en cours.</p>
           )}
         </div>
+        {tail}
       </m.div>
     </Chapter>
   );

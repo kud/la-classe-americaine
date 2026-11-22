@@ -37,7 +37,7 @@ export function Doublage({ appearance, reducedMotion, phone, onDone }: Props) {
   const { character, line, timeline } = appearance;
   const who = CHARACTERS[character];
   const still = cardStill(character);
-  const words = line.text.split(/\s+/).filter(Boolean);
+  const words = line.text.split(/[ \t\n]+/).filter(Boolean);
 
   const [visible, setVisible] = useState(true);
   const [revealed, setRevealed] = useState(reducedMotion ? words.length : 0);

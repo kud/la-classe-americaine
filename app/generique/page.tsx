@@ -58,7 +58,7 @@ export default function Generique() {
           <section aria-labelledby="ecran">
             <h2 id="ecran">À l&apos;écran</h2>
             <p>
-              Archives Warner Bros. : {ON_SCREEN.names.join(", ")}, et bien d&apos;autres.
+              Archives Warner Bros. : {ON_SCREEN.names.join(", ")}, et bien d&apos;autres.
             </p>
           </section>
 
@@ -101,10 +101,10 @@ export default function Generique() {
             <p>
               <cite>La Classe Américaine — Le Grand Détournement</cite> © Warner Bros., Canal+. Images et répliques
               extraites du flim, utilisées à titre d&apos;hommage. Ce site est un hommage non officiel, sans but commercial,
-              fait par des fans ; il n&apos;est affilié ni à Warner Bros., ni à Canal+, ni aux auteurs.
+              fait par des fans ; il n&apos;est affilié ni à Warner Bros., ni à Canal+, ni aux auteurs.
             </p>
             <p>
-              Ayants droit : une demande de retrait est traitée sans discussion,{" "}
+              Ayants droit : une demande de retrait est traitée sans discussion,{" "}
               <a href="https://github.com/kud/la-classe-americaine/issues">par une demande sur le dépôt du site</a>.
             </p>
           </section>
@@ -112,13 +112,13 @@ export default function Generique() {
           <section aria-labelledby="colophon">
             <h2 id="colophon">Colophon</h2>
             <p>
-              Ce site existe depuis 2011. Première version : @_kud, design @usine_creative. Refait en 2026.
+              Ce site existe depuis 2011. Première version : @_kud, design @usine_creative. Refait en 2026.
             </p>
             <p>
-              Caractères : Bodoni Moda et Courier Prime (SIL Open Font License). Les sons, quand vous les allumez, sont
+              Caractères : Bodoni Moda et Courier Prime (SIL Open Font License). Les sons, quand vous les allumez, sont
               synthétisés dans le navigateur : aucun extrait sonore du flim.
             </p>
-            <p>Sources :</p>
+            <p>Sources :</p>
             <ul className={styles.films}>
               <li>
                 <a href="https://fr.wikipedia.org/wiki/La_Classe_am%C3%A9ricaine" hrefLang="fr">

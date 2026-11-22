@@ -425,7 +425,7 @@
   font-style: italic;
   font-size: var(--s-48);
   line-height: 1.15;
-  quotes: "« " " »";
+  quotes: "«\202F" "\202F»";
 }
 .reviewQuote p::before {
   content: open-quote;
@@ -523,12 +523,16 @@
 }
 
 /* ———————————————————— 7 · Affaire classée ———————————————————— */
-.classee {
-  background: linear-gradient(var(--screen), var(--paper) 120px);
-  padding-top: 160px;
+/* dark → paper: the projection room fades into the file */
+.chapter.classee {
+  background: linear-gradient(var(--screen), var(--paper) 140px);
+  padding-top: 180px;
 }
 .board {
   text-align: center;
+}
+.board :global(.kicker) {
+  margin-inline: auto;
 }
 .boardPhotos {
   position: relative;
@@ -559,12 +563,12 @@
 }
 .boardQuestion {
   margin: 36px auto 0;
-  max-width: 20ch;
+  max-width: 24ch;
   font-size: var(--s-48);
   line-height: 1.1;
 }
 .stampSlot {
-  min-height: 120px;
+  min-height: 140px;
   display: grid;
   place-items: center;
 }

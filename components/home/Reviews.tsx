@@ -7,7 +7,7 @@ import styles from "./home.module.css";
 
 function Stars({ n }: { n: number }) {
   return (
-    <p className={styles.stars} aria-label={`${n} étoile${n > 1 ? "s" : ""} sur 5`}>
+    <p className={styles.stars} role="img" aria-label={`${n} étoile${n > 1 ? "s" : ""} sur 5`}>
       <span aria-hidden="true">
         {"★".repeat(n)}
         <span className={styles.starsOff}>{"☆".repeat(5 - n)}</span>

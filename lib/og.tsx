@@ -36,7 +36,7 @@ export function OgCard({ quote, who, image }: { quote: string; who: string | nul
           LA CLASSE AMÉRICAINE · 1993
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontFamily: "Bodoni Moda", fontWeight: 500, fontStyle: "normal", fontSize: size, lineHeight: 1.08 }}>{`« ${quote} »`}</div>
+          <div style={{ fontFamily: "Bodoni Moda", fontWeight: 500, fontStyle: "normal", fontSize: size, lineHeight: 1.08 }}>{`« ${quote} »`}</div>
           {who && <div style={{ marginTop: 22, fontFamily: "Courier Prime", fontSize: 24, color: "#9e978a" }}>{`— ${who}`}</div>}
         </div>
         <div style={{ display: "flex", alignItems: "baseline", gap: 18 }}>

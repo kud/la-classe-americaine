@@ -97,7 +97,8 @@ export const TIMING = {
 } as const;
 
 export function wordCount(text: string): number {
-  return text.trim().split(/\s+/).filter(Boolean).length;
+  // split on ordinary spaces only: a narrow no-break space keeps « ! » with its word
+  return text.trim().split(/[ \t\n]+/).filter(Boolean).length;
 }
 
 export function timeline(text: string, reducedMotion: boolean): Timeline {

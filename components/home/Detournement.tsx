@@ -17,7 +17,7 @@ export function Detournement() {
             En 1993, pour un anniversaire de la Warner, le studio ouvre son catalogue à Canal+. Michel Hazanavicius et
             Dominique Mézerette y piochent des extraits d&apos;une cinquantaine de films tournés entre 1952 et 1980, un
             fragment de <cite>Maigret</cite> avec Bruno Cremer, et font tout redoubler par les voix françaises habituelles
-            des stars, dont Raymond Loyer, la voix de John Wayne. Ils en tirent un flim neuf : un hommage à{" "}
+            des stars, dont Raymond Loyer, la voix de John Wayne. Ils en tirent un flim neuf : un hommage à{" "}
             <cite>Citizen Kane</cite>.
           </p>
           <p>

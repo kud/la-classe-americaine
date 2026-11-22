@@ -80,7 +80,7 @@ export function Carton() {
       <div className={styles.inner}>
         <Cyclimse className={styles.bike} />
         <p id="carton-title" className={styles.title}>
-          Attention !
+          Attention !
         </p>
         <p className={styles.text}>
           ce flim n&apos;est pas un flim sur le cyclimse.
@@ -119,7 +119,7 @@ export function CyclimseListener() {
 export function ConsoleMessage() {
   useEffect(() => {
     console.log(
-      "%cAttention !%c\nce flim n'est pas un flim sur le cyclimse.\nMerci de votre compréhension.",
+      "%cAttention !%c\nce flim n'est pas un flim sur le cyclimse.\nMerci de votre compréhension.",
       "font: 600 22px 'Bodoni Moda', Didot, serif",
       "font: 14px 'Bodoni Moda', Didot, serif",
     );

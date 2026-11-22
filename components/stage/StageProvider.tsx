@@ -65,7 +65,7 @@ export function StageProvider({ children }: { children: React.ReactNode }) {
     const a = stage.request(t);
     if (!a) return false;
     setCurrent(a);
-    if (a.type === "doublage") setAnnounce(`${CHARACTERS[a.character].name} : ${a.line.text}`);
+    if (a.type === "doublage") setAnnounce(`${CHARACTERS[a.character].name} : ${a.line.text}`);
     else setAnnounce("Entracte.");
     return true;
   }, [stage]);

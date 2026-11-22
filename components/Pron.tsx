@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useId, useLayoutEffect, useRef, useState } from "react";
 import { CHARACTERS } from "@/content/characters";
 import styles from "./Pron.module.css";
 
@@ -13,6 +13,20 @@ export function Pron({ who }: { who: "peter" | "steven" }) {
   const id = useId();
   const [open, setOpen] = useState(false);
   const timer = useRef<number | null>(null);
+  const tip = useRef<HTMLSpanElement>(null);
+  const [shift, setShift] = useState(0);
+
+  // keep the tooltip inside the viewport (phones)
+  useLayoutEffect(() => {
+    if (!open || !tip.current) return;
+    const r = tip.current.getBoundingClientRect();
+    const vw = document.documentElement.clientWidth;
+    const over = r.right - shift - (vw - 8);
+    const under = 8 - (r.left - shift);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- measured layout, one adjustment
+    setShift(over > 0 ? -over : under > 0 ? under : 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
   const clear = () => {
     if (timer.current) window.clearTimeout(timer.current);
     timer.current = null;
@@ -38,8 +52,14 @@ export function Pron({ who }: { who: "peter" | "steven" }) {
       >
         {c.name}
       </span>
-      <span id={id} role="tooltip" className={[styles.tip, open ? styles.open : ""].join(" ")}>
-        prononcé « {c.pronunciation!.said} », et non pas « {c.pronunciation!.not} »
+      <span
+        id={id}
+        ref={tip}
+        role="tooltip"
+        className={[styles.tip, open ? styles.open : ""].join(" ")}
+        style={{ marginLeft: shift }}
+      >
+        prononcé « {c.pronunciation!.said} », et non pas « {c.pronunciation!.not} »
       </span>
     </span>
   );

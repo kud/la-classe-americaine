@@ -11,13 +11,13 @@ export const REVIEWS: Review[] = [
     stars: 4,
     text: "Un flim pour les amateurs de ouiche lorraine et autres animaux préhistoriques partouzeurs de droite.",
   },
-  { outlet: "Wogue", stars: 5, text: "Cultissime ! La définition même de la classe !" },
+  { outlet: "Wogue", stars: 5, text: "Cultissime ! La définition même de la classe !" },
   {
     outlet: "AlloFlim",
     stars: 4,
-    text: "Prodigieusement drôle et vivant ! À découvrir avec les copains autour d'un bon paquet de chips.",
+    text: "Prodigieusement drôle et vivant ! À découvrir avec les copains autour d'un bon paquet de chips.",
   },
   { outlet: "Humour de droite", stars: 1, text: "J'ai rien compris." },
-  { outlet: "Mexican Food Restaurant", stars: 1, text: "Des acteurs époustouflants !" },
+  { outlet: "Mexican Food Restaurant", stars: 1, text: "Des acteurs époustouflants !" },
   { outlet: "Mouvement du jour", stars: 1, text: "Erreur 403." },
 ];
