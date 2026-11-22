@@ -81,10 +81,10 @@ export default function Generique() {
               {STILLS.map((s) => (
                 <li key={s.id}>
                   {CHARACTERS[s.character].name}, {s.scene.toLowerCase()}
-                  {s.sourceFilm ? (
+                  {s.sourceFilm?.status === "attested" ? (
                     <>
                       {" "}
-                      (<cite lang="en">{s.sourceFilm}</cite>)
+                      (<cite lang="en">{s.sourceFilm.title}</cite>)
                     </>
                   ) : null}
                 </li>

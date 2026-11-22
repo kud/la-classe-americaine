@@ -2,12 +2,13 @@
 /**
  * The stills pipeline (§7). One command:
  *
- *   npm run stills                     # placeholders from assets/placeholder-stills/
+ *   npm run stills                     # interim sources from assets/
  *   npm run stills -- <film-file>      # frames grabbed from the film at each timecode
  *
  * 1. Grab: ffmpeg -ss <timecode> -i <film> -frames:v 1 → lossless PNG master
- *    (assets/masters/, never committed). Without a film file, the V1 placeholder
- *    is read instead, pre-cropped to its rectangle.
+ *    (assets/masters/, never committed). Without a film file, the interim source
+ *    (assets/placeholder-stills/ or assets/stills-source/) is read instead,
+ *    pre-cropped to its rectangle.
  * 2. Crop to the aspect around the focus point; upscale at most 2×, Lanczos only.
  * 3. Grade: "actualites" (greyscale, contrast 1.15, blacks lifted to #141210)
  *    or "temoignage" (saturation 0.55, warm 6 % tint, slight fade). Grain is CSS.
@@ -24,7 +25,7 @@ import { STILLS } from "../content/stills.data.ts";
 const ROOT = resolve(import.meta.dirname, "..");
 const OUT = join(ROOT, "public/stills");
 const MASTERS = join(ROOT, "assets/masters");
-const PLACEHOLDERS = join(ROOT, "assets/placeholder-stills");
+const PLACEHOLDERS = join(ROOT, "assets");
 const film = process.argv[2];
 const MAX_W = 1600;
 

@@ -35,7 +35,7 @@ export default async function Replique({ params }: PageProps<"/repliques/[slug]"
   if (!q) notFound();
   const speaker = attributedSpeaker(q);
   const who = speaker ? CHARACTERS[speaker] : null;
-  const image = speaker === "george" ? still("george-hero") : speaker ? cardStill(speaker) : null;
+  const image = q.still ? still(q.still) : speaker === "george" ? still("george-hero") : speaker ? cardStill(speaker) : null;
   return (
     <main id="contenu">
       <PageHeader kicker={`Pièce à conviction n° ${q.n}`} title={<span className="sr-only">Pièce n° {q.n}</span>} id="piece-titre">

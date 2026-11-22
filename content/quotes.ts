@@ -18,6 +18,8 @@ export interface Quote {
   filmChecked: boolean;
   /** Where the wording comes from. */
   source: string;
+  /** A still for /repliques/[slug], when there is one of the moment itself. */
+  still?: string;
 }
 
 /**
@@ -93,6 +95,7 @@ export const QUOTES: Quote[] = [
     speakerStatus: "attested",
     filmChecked: false,
     source: "Recherches (fiches de citations)",
+    still: "jose-pirate",
   },
   {
     slug: "les-menageres",
