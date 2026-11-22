@@ -1,0 +1,38 @@
+{
+  "george-hero": {
+    "src": "/stills/george-hero.webp",
+    "width": 1344,
+    "height": 1680,
+    "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAABQAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JaQAAUqduJ6QuUAD+7qFYFRGXssShey+b+p5fEHQ6BAAA"
+  },
+  "george-wide": {
+    "src": "/stills/george-wide.webp",
+    "width": 1520,
+    "height": 855,
+    "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAkAA4BaJaQAAiDtnHEEAP71e7SyQFewp5TCr9odUR+fAAA="
+  },
+  "george-card": {
+    "src": "/stills/george-card.webp",
+    "width": 1344,
+    "height": 1680,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAwCdASoQABQAPu1iqU2ppaQiMAgBMB2JZwDG9B6QdWVHjGjrgAD+8N+v6O81bxCmJCnaWtrd9j8YAAA="
+  },
+  "dave-card": {
+    "src": "/stills/dave-card.webp",
+    "width": 500,
+    "height": 625,
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoQABQAPu1iqU2ppaQiMAgBMB2JYwCw7CIjgPXTK7kcstsfYQAA/vGAeDFlvR+eYL4PCVR+b4Mfnj62XN6bYwIyrfQS9Y+ZHqWsJojYnFKo6zxNWYKdAAAA"
+  },
+  "peter-card": {
+    "src": "/stills/peter-card.webp",
+    "width": 448,
+    "height": 560,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQBACdASoQABQAPu1iqk2ppaQiMAgBMB2JZQCdACHfMNK8E2Z4jdRKgAD+6jVSy3JfsLwOf60h+UdZ8iwuPVDSML+nspBXLXv0koYfhPCJGYYBAFjm1USCHxEAAA=="
+  },
+  "steven-card": {
+    "src": "/stills/steven-card.webp",
+    "width": 452,
+    "height": 565,
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JQBYdgxeyVTj1tOgiEAD+72NI1crfaM8at1x/uc+akTlN9QzIzOGGwLnIQQ/2HNIoF/4vd0lKWR+g+l2CBPWiw8JjQAAA"
+  }
+}
