@@ -23,7 +23,6 @@ export function Pron({ who }: { who: "peter" | "steven" }) {
     const vw = document.documentElement.clientWidth;
     const over = r.right - shift - (vw - 8);
     const under = 8 - (r.left - shift);
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- measured layout, one adjustment
     setShift(over > 0 ? -over : under > 0 ? under : 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
